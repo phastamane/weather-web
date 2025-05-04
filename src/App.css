@@ -12,3 +12,17 @@
   align-items: center;
   gap: 15px; 
 }
+
+.city-town{
+  display: flex;
+  flex-direction: column;
+ 
+}
+
+.times{
+  
+  gap: 50px;
+  display: flex;
+  flex-direction: row;
+
+}
