@@ -74,3 +74,10 @@ input {
   text-align: center;
   font-family: 'Courier New', Courier, monospace;
 }
+
+@keyframes fadeIn{
+  to{
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
