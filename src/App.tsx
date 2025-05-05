@@ -20,9 +20,10 @@ function App() {
   async function onBut() {
     try {
       let response = await fetchToApi(cityName);
-      console.log(response);
+      
       setWeatherData(response);
       setCityName('');
+
     } catch (err) {
       console.log(err);
     }
@@ -35,11 +36,18 @@ function App() {
         <input 
           value={cityName}
           onChange={e => setCityName(e.target.value)}
+          onKeyDown={e => {
+            if (e.key === 'Enter') {
+              onBut();
+            }}
+          }
         />
         <button onClick={onBut}>Найти</button>
       </div>
       
-      {weatherData && <CityPage response={weatherData} />}
+      {weatherData && <CityPage 
+      key={weatherData.city.name + weatherData.list[0].dt} // для повторного проигрывания анимации
+      response={weatherData} />}
     </>
   );
 }
