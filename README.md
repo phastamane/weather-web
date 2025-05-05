@@ -18,3 +18,8 @@ A simple single-page application for checking weather forecasts of a selected ci
 - Error handling for incorrect city names or API issues
 - Provides detailed weather conditions (e.g., light rain, heavy rain, no rain)
 
+## Demo
+
+Here is a quick preview of the Weather Forecast App in action:
+
+![Weather Forecast App Demo](./assets/weather-demo.gif)
