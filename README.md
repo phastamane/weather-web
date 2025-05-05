@@ -23,3 +23,7 @@ A simple single-page application for checking weather forecasts of a selected ci
 Here is a quick preview of the Weather Forecast App in action:
 
 ![Weather Forecast App Demo](./assets/weather-demo.gif)
+
+## About project
+
+Был создал одностраничный сайт для просмотра погоды в городе на ближайшие сутки, используя OpenWeather API, React, Vite и TypeScript. Это мой первый проект с такими технологиями, и его цель заключалась в том, чтобы попрактиковаться в использовании React и освоить основы этих технологий.
