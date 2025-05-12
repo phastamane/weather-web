@@ -1,5 +1,5 @@
 #root {
-  max-width: auto;
+  width: 100vw;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
@@ -36,6 +36,7 @@
   gap: 50px;
   display: flex;
   flex-direction: row;
+  justify-content: space-around;
 
 
 }
@@ -61,4 +62,24 @@
 #rain{
   height: 50px ;
   align-content: center;
+}
+
+
+#particles-js {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 999;
+  pointer-events: none; /* Здесь наоборот нужно оставить */
+}
+
+canvas {
+  width: 100% !important;
+  height: 100% !important;
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
 }

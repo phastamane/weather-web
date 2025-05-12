@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import './App.css';
 import CityPage from './CityPage';
+import ParticlesBackground from './Particles';
+
 
 function App() {
   const [weatherData, setWeatherData] = useState<any>(null);
@@ -30,8 +32,10 @@ function App() {
   }
 
   return (
-    <>
-      <div className="select-town">
+    <div style={{ position: 'relative', minHeight: '100vh', overflow: 'hidden' }}>
+      <ParticlesBackground />
+  
+      <div className="select-town" style={{ position: 'relative', zIndex: 1 }}>
         <h1>Какой город интересует?</h1>
         <input 
           value={cityName}
@@ -45,11 +49,13 @@ function App() {
         <button onClick={onBut}>Найти</button>
       </div>
       
-      {weatherData && <CityPage 
-      key={weatherData.city.name + weatherData.list[0].dt} // для повторного проигрывания анимации
-      response={weatherData} />}
-    </>
+      {weatherData && (
+        <CityPage 
+          key={weatherData.city.name + weatherData.list[0].dt}
+          response={weatherData} 
+        />
+      )}
+    </div>
   );
 }
-
 export default App;
