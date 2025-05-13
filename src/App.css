@@ -1,7 +1,7 @@
 #root {
   width: 100vw;
   margin: 0 auto;
-  padding: 2rem;
+
   text-align: center;
 }
 
@@ -22,12 +22,12 @@
 }
 
 .city-window{
-  margin-top: 200px;
+  margin-top: 125px;
 }
 
 
 .city-window:view-transition{
-  transition: #242424 1s;
+  transition: #929292 1s;
 }
 
 
@@ -43,20 +43,23 @@
 
 .child-times{
   display: flex;
-  background-color: #024242;
+  background-color: #cfe2e280;
   border-radius: 15px;
   min-width: 150px;
-  justify-content: center;
+
   flex-direction: column;
   align-items: center;
+  height: 500px;
+  
 
   
 }
 
 .child-times h3, p{
-  background-color:  #2ca1a152;
+  background-color:  #44270F;
   width: 125px;
   border-radius: 15px;
+  height: auto;
   
 }
 #rain{
@@ -75,11 +78,13 @@
   pointer-events: none; /* Здесь наоборот нужно оставить */
 }
 
-canvas {
-  width: 100% !important;
-  height: 100% !important;
-  display: block;
-  position: fixed;
-  top: 0;
-  left: 0;
+#rainfall{
+  min-height: 48px;
+  align-content: center;
+}
+
+#city-name{
+
+  margin-bottom: 75px;
+
 }

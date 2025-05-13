@@ -2,24 +2,33 @@ import { useState } from 'react';
 import './App.css';
 import CityPage from './CityPage';
 import ParticlesBackground from './Particles';
+// import onBut from './ButtonsFunc';
 
-
+const API_KEY: string = 'f4c00f312087165b908fcc539f5922d2'
 function App() {
   const [weatherData, setWeatherData] = useState<any>(null);
   const [cityName, setCityName] = useState<string>('');
 
   async function fetchToApi(request: string) {
-    const url: string = `http://api.openweathermap.org/data/2.5/forecast?q=${request}&units=metric&lang=ru&appid=f4c00f312087165b908fcc539f5922d2`;
+    const url: string = `http://api.openweathermap.org/data/2.5/forecast?q=${request}&units=metric&lang=ru&appid=${API_KEY}`;
     const response = await fetch(url);
     
     if (!response.ok) {
       throw new Error(`Ошибка: ${response.status}`);
     }
-
-    return await response.json();
+    const data = await response.json()
+    console.log(data)
+    return data
   }
 
-  async function onBut() {
+  async function onBut(
+
+    // fetchToApi: (name: string) => Promise<any>,
+    // cityName: string,
+    // setWeatherData: (data: any) => void,
+    // setCityName: (name: string) => void
+
+) {
     try {
       let response = await fetchToApi(cityName);
       
@@ -46,7 +55,7 @@ function App() {
             }}
           }
         />
-        <button onClick={onBut}>Найти</button>
+        <button onClick={() => onBut()}>Найти</button>
       </div>
       
       {weatherData && (

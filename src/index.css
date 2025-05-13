@@ -27,7 +27,7 @@ body {
   display: flex;
   place-items: center;
   min-width: 320px;
-  min-height: 100vh;
+
 }
 
 h1 {
@@ -80,4 +80,12 @@ input {
     opacity: 1;
     transform: translateY(0);
   }
+}
+canvas {
+  width: 100% !important;
+  height: 100% !important;
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
 }
