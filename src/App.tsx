@@ -1,49 +1,21 @@
 import { useState } from 'react';
 import './App.css';
-import CityPage from './CityPage';
+import CityPage from './components/CitiPages/CityPage';
 import ParticlesBackground from './Particles';
-// import onBut from './ButtonsFunc';
+import {dailyForecast, threeDaysForecast} from './utils/ButtonsFuncs';
 
-const API_KEY: string = 'f4c00f312087165b908fcc539f5922d2'
+
+
 function App() {
-  const [weatherData, setWeatherData] = useState<any>(null);
+  const [weatherDataDaily, setWeatherDataDaily] = useState<any>(null);
+  const [weatherDataThreeDays, setWeatherDataThreeDays] = useState<any>(null);
   const [cityName, setCityName] = useState<string>('');
 
-  async function fetchToApi(request: string) {
-    const url: string = `http://api.openweathermap.org/data/2.5/forecast?q=${request}&units=metric&lang=ru&appid=${API_KEY}`;
-    const response = await fetch(url);
-    
-    if (!response.ok) {
-      throw new Error(`Ошибка: ${response.status}`);
-    }
-    const data = await response.json()
-    console.log(data)
-    return data
-  }
-
-  async function onBut(
-
-    // fetchToApi: (name: string) => Promise<any>,
-    // cityName: string,
-    // setWeatherData: (data: any) => void,
-    // setCityName: (name: string) => void
-
-) {
-    try {
-      let response = await fetchToApi(cityName);
-      
-      setWeatherData(response);
-      setCityName('');
-
-    } catch (err) {
-      console.log(err);
-    }
-  }
 
   return (
     <div style={{ position: 'relative', minHeight: '100vh', overflow: 'hidden' }}>
       <ParticlesBackground />
-  
+
       <div className="select-town" style={{ position: 'relative', zIndex: 1 }}>
         <h1>Какой город интересует?</h1>
         <input 
@@ -51,20 +23,30 @@ function App() {
           onChange={e => setCityName(e.target.value)}
           onKeyDown={e => {
             if (e.key === 'Enter') {
-              onBut();
-            }}
-          }
+              dailyForecast(cityName, setWeatherDataDaily, setCityName);
+            }
+          }}
         />
-        <button onClick={() => onBut()}>Найти</button>
+        <button onClick={() => dailyForecast(cityName, setWeatherDataDaily, setCityName)}>Найти</button>
       </div>
       
-      {weatherData && (
-        <CityPage 
-          key={weatherData.city.name + weatherData.list[0].dt}
-          response={weatherData} 
-        />
+      {weatherDataDaily && (
+        <>
+          <div className="chose-days">
+            <button onClick={() => dailyForecast(cityName, setWeatherDataDaily, setCityName)}>На сегодня</button>
+            <button onClick={() => threeDaysForecast(cityName, setWeatherDataThreeDays, setWeatherDataDaily, setCityName)}>На 3 дня</button>
+            {/* <button onClick={() => sevenDays()}>На 7 дней</button> */}
+          </div>
+
+          <CityPage 
+            key={weatherDataDaily.city.name + weatherDataDaily.list[0].dt}
+            response={weatherDataDaily} 
+          />
+        </>
       )}
     </div>
   );
 }
+
 export default App;
+
