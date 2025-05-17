@@ -24,7 +24,7 @@ const CityPage: React.FC<CityPageProps> = ({ response, daily, threeDays, fiveDay
     {daily &&(
       <>
         <h1 id="city-name">{response.city.name}</h1>
-        <h3 id = 'forecast-declaration'>прогноз на 24 часа</h3>
+        <h3 id = 'forecast-declaration'>прогноз погоды на 24 часа</h3>
      
         <div className="times">
           
@@ -39,7 +39,7 @@ const CityPage: React.FC<CityPageProps> = ({ response, daily, threeDays, fiveDay
     {threeDays&&(
     <>
     <h1 id="city-name">{response.city.name}</h1>
-    <h3 id = 'forecast-declaration'>прогноз на 3 дня</h3>
+    <h3 id = 'forecast-declaration'>прогноз погоды на 3 дня</h3>
     <div className="times-three-days">
       {[...Array(3)].map((_, i) => {
         return < ThreeDaysForecast key = {i} index = {i} data = {response} /> 
@@ -51,7 +51,7 @@ const CityPage: React.FC<CityPageProps> = ({ response, daily, threeDays, fiveDay
     {fiveDays&&(
         <>
         <h1 id="city-name">{response.city.name}</h1>
-        <h3 id = 'forecast-declaration'>прогноз на 5 дней</h3>
+        <h3 id = 'forecast-declaration'>прогноз погоды на 5 дней</h3>
         <div className="times-three-days">
           {[...Array(5)].map((_, i) => {
             return < FiveDaysForecast key = {i} index = {i} data = {response} /> 

@@ -12,7 +12,7 @@ async function dailyForecast(
     setFiveDays: (flag: boolean) => void,
 
     setResponse: (data: any) => void,
-    setCityName: (name: string) => void,
+    //setCityName: (name: string) => void,
 
     
 ) {
@@ -58,7 +58,7 @@ function threeDaysForecast(
   setThreeDays: (flag: boolean) => void,
   setFiveDays: (flag: boolean) => void,
 
-  setCityName: (name: string) => void,
+  //setCityName: (name: string) => void,
 
 
 ){
@@ -88,7 +88,7 @@ function fiveDaysForecast(
   setThreeDays: (flag: boolean) => void,
   setFiveDays: (flag: boolean) => void,
 
-  setCityName: (name: string) => void,
+  //setCityName: (name: string) => void,
 
 
 ){
