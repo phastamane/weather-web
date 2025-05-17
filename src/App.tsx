@@ -2,13 +2,15 @@ import { useState } from 'react';
 import './App.css';
 import CityPage from './components/CitiPages/CityPage';
 import ParticlesBackground from './Particles';
-import {dailyForecast, threeDaysForecast} from './utils/ButtonsFuncs';
+import {dailyForecast, fiveDaysForecast, threeDaysForecast} from './utils/ButtonsFuncs';
 
 
 
 function App() {
-  const [weatherDataDaily, setWeatherDataDaily] = useState<any>(null);
-  const [weatherDataThreeDays, setWeatherDataThreeDays] = useState<any>(null);
+  const [response, setResponse] = useState<any>(null);
+  const [daily, setDaily] = useState<boolean>(false);
+  const [threeDays, setThreeDays] = useState<boolean>(false);
+  const [fiveDays, setFiveDays] = useState<boolean>(false);
   const [cityName, setCityName] = useState<string>('');
 
 
@@ -23,24 +25,29 @@ function App() {
           onChange={e => setCityName(e.target.value)}
           onKeyDown={e => {
             if (e.key === 'Enter') {
-              dailyForecast(cityName, setWeatherDataDaily, setCityName);
+              dailyForecast(cityName, setDaily, setThreeDays, setFiveDays, setResponse, setCityName);
             }
           }}
         />
-        <button onClick={() => dailyForecast(cityName, setWeatherDataDaily, setCityName)}>Найти</button>
+        <button onClick={() => dailyForecast(cityName, setDaily, setThreeDays, setFiveDays, setResponse, setCityName)}>Найти</button>
       </div>
       
-      {weatherDataDaily && (
+      {response && (
         <>
-          <div className="chose-days">
-            <button onClick={() => dailyForecast(cityName, setWeatherDataDaily, setCityName)}>На сегодня</button>
-            <button onClick={() => threeDaysForecast(cityName, setWeatherDataThreeDays, setWeatherDataDaily, setCityName)}>На 3 дня</button>
-            {/* <button onClick={() => sevenDays()}>На 7 дней</button> */}
+          <div className="choose-days">
+            
+            <button onClick={() => dailyForecast(cityName, setDaily, setThreeDays, setFiveDays, setResponse, setCityName)}>На сегодня</button>
+            <button onClick={() => threeDaysForecast(setDaily, setThreeDays, setFiveDays, setCityName)}>На 3 дня</button>
+            <button onClick={() => fiveDaysForecast(setDaily, setThreeDays, setFiveDays, setCityName)}>На 5 дней</button>
+
           </div>
 
           <CityPage 
-            key={weatherDataDaily.city.name + weatherDataDaily.list[0].dt}
-            response={weatherDataDaily} 
+            key={response.city.name + response.list[0].dt}
+            response={response}
+            daily = {daily}
+            threeDays = {threeDays}
+            fiveDays = {fiveDays} 
           />
         </>
       )}

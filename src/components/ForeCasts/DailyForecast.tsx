@@ -1,5 +1,5 @@
 import React from "react";
-import { getWeekDay, getImage, getMonth } from '../../utils/dateHelpers.tsx';
+import { getWeekDay, getMonth, getImage } from '../../utils/dateHelpers.tsx';
 
 type DailyForecastProps = {
     data: any,
@@ -14,8 +14,13 @@ const DailyForecast: React.FC<DailyForecastProps> = ({data, index}) => {
     const weekDay: string = getWeekDay(date)
     const month: string = getMonth(date)
     const icon: string = data.list[index].weather[0].icon
+    let weatherDescription: string = data.list[index].weather[0].description
+    weatherDescription = weatherDescription[0].toLocaleUpperCase() + weatherDescription.slice(1)
+    let rainAmount: number = 0
     
-
+    if(data.list[index].rain) { 
+        rainAmount = data.list[index].rain['3h']}
+        
 
 
         
@@ -42,79 +47,16 @@ const DailyForecast: React.FC<DailyForecastProps> = ({data, index}) => {
               {Math.round(data.list[index].main.temp)}
               <strong> °С</strong>
             </p>
-            <p>
-              <strong>Облачность:<br /></strong>
-              {data.list[index].clouds.all}%
-            </p>
-      
-            {data.list[index].rain ? (
-              (() => {
-                const rainAmount = Number(data.list[index].rain['3h']);
-      
-                if (rainAmount < 3) {
-                  return (
-                    <div id="rain">
-                      {getImage(icon)}
-                      <p id="rainfall">
-                        <strong>
-                          Небольшой дождь
-                          <br />
-                          {rainAmount + ' мм'}
-                        </strong>
-                      </p>
-                    </div>
-                  );
-                } else if (rainAmount >= 3 && rainAmount < 49) {
-                  return (
-                    <div id="rain">
-                      {getImage(icon)}
-                      <p id="rainfall">
-                        <strong>
-                          Дождь
-                          <br />
-                          {Math.round(rainAmount) + ' мм'}
-                        </strong>
-                      </p>
-                    </div>
-                  );
-                } else if (rainAmount >= 49 && rainAmount <= 50) {
-                  return (
-                    <div id="rain">
-                      {getImage(icon)}
-                      <p id="rainfall">
-                        <strong>
-                          Сильный дождь
-                          <br />
-                          {Math.round(rainAmount) + ' мм'}
-                        </strong>
-                      </p>
-                    </div>
-                  );
-                } else if (rainAmount > 50) {
-                  return (
-                    <div id="rain">
-                      {getImage(icon)}
-                      <p id="rainfall">
-                        <strong>
-                          Ливни
-                          <br />
-                          {Math.round(rainAmount) + ' мм'}
-                        </strong>
-                      </p>
-                    </div>
-                  );
-                }
-      
-                return null;
-              })()
-            ) : (
-              <div id="rain">
-                {getImage(icon)}
-                <p id="rainfall">
-                  <strong>Осадков нет</strong>
+            <div id="rain">
+              {getImage(icon)}
+              <p id="rainfall">
+                <strong>
+                  {weatherDescription + ","}
+                  <br />
+                  {rainAmount ? rainAmount + ' мм' : "без осадков"}
+                </strong>
                 </p>
-              </div>
-            )}
+          </div>
           </div>
         </>
       );
