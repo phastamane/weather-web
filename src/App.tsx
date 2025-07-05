@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import './App.css';
 import CityPage from './components/CitiPages/CityPage';
-import ParticlesBackground from './Particles';
+
 import {dailyForecast, fiveDaysForecast, threeDaysForecast} from './utils/ButtonsFuncs';
 
 
@@ -16,7 +16,7 @@ function App() {
 
   return (
     <div style={{ position: 'relative', minHeight: '100vh', overflow: 'hidden' }}>
-      <ParticlesBackground />
+
 
       <div className="select-town" style={{ position: 'relative', zIndex: 1 }}>
         <h1>Какой город интересует?</h1>
@@ -25,20 +25,20 @@ function App() {
           onChange={e => setCityName(e.target.value)}
           onKeyDown={e => {
             if (e.key === 'Enter') {
-              dailyForecast(cityName, setDaily, setThreeDays, setFiveDays, setResponse, setCityName);
+              dailyForecast(cityName, setDaily, setThreeDays, setFiveDays, setResponse);
             }
           }}
         />
-        <button onClick={() => dailyForecast(cityName, setDaily, setThreeDays, setFiveDays, setResponse, setCityName)}>Найти</button>
+        <button onClick={() => dailyForecast(cityName, setDaily, setThreeDays, setFiveDays, setResponse)}>Найти</button>
       </div>
       
       {response && (
         <>
           <div className="choose-days">
             
-            <button onClick={() => dailyForecast(cityName, setDaily, setThreeDays, setFiveDays, setResponse, setCityName)}>На сегодня</button>
-            <button onClick={() => threeDaysForecast(setDaily, setThreeDays, setFiveDays, setCityName)}>На 3 дня</button>
-            <button onClick={() => fiveDaysForecast(setDaily, setThreeDays, setFiveDays, setCityName)}>На 5 дней</button>
+            <button onClick={() => dailyForecast(cityName, setDaily, setThreeDays, setFiveDays, setResponse)}>На сегодня</button>
+            <button onClick={() => threeDaysForecast(setDaily, setThreeDays, setFiveDays)}>На 3 дня</button>
+            <button onClick={() => fiveDaysForecast(setDaily, setThreeDays, setFiveDays)}>На 5 дней</button>
 
           </div>
 

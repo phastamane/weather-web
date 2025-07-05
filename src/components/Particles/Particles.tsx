@@ -9,7 +9,7 @@ declare global {
 const ParticlesBackground = () => {
   useEffect(() => {
     window.particlesJS.load('particles-js', '/assets/particlesjs-config.json', () => {
-      console.log('callback - particles.js config loaded');
+      // console.log('callback - particles.js config loaded');
     });
   }, []);
 
