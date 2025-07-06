@@ -1,0 +1,37 @@
+html {
+    box-sizing: border-box;
+
+    overflow-y: auto;
+    scroll-behavior: smooth;
+
+}
+*, *:before, *::after {
+    box-sizing: inherit;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+
+}
+
+:root {
+    --accent-color: #cbe8ea;
+    --text-color: #fff;
+    --bg-color: #2e2f3a;
+    --border-color: #cdd2da;
+
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+@font-face {
+    font-family: 'SFPro';
+    src: url('../../fonts/SFProText-Light.ttf') format('truetype');
+    font-weight: 300; /* необязательно, но полезно */
+    font-style: normal;
+}
+
+
+

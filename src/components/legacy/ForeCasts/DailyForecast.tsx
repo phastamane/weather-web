@@ -1,5 +1,5 @@
 import React from "react";
-import { getWeekDay, getMonth, getImage } from '../../utils/dateHelpers.tsx';
+import { getWeekDay, getMonth, getImage } from '../utils/dateHelpers.tsx';
 
 type DailyForecastProps = {
     data: any,

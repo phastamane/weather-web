@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import './App.css';
-import CityPage from './components/CitiPages/CityPage';
 
-import {dailyForecast, fiveDaysForecast, threeDaysForecast} from './utils/ButtonsFuncs';
+import CityPage from './components/legacy/CityPages/CityPage';
+
+import {dailyForecast, fiveDaysForecast, threeDaysForecast} from './components/legacy/utils/ButtonsFuncs';
 
 
 

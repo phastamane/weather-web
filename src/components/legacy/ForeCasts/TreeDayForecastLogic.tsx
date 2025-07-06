@@ -1,4 +1,4 @@
-import { unique } from "../../utils/dateHelpers";
+import { unique } from "../utils/dateHelpers";
 
 interface ForecastDay {
     day: number,

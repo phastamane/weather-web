@@ -1,23 +1,18 @@
 import React from "react";
-import { ThreeDaysForecastLogic } from "./TreeDayForecastLogic";
-import { getWeekDay, getMonth, PageConstructor } from '../../utils/dateHelpers.tsx';
+import { FiveDaysForecastLogic } from "./FiveDayForecastLogic.tsx";
+import { getWeekDay, getMonth, PageConstructor } from '../utils/dateHelpers.tsx';
 
 
-type ThreeDaysForecastProps = {
+type FiveDaysForecastProps = {
   data: any,
   index: number
 }
 
-const ThreeDaysForecast: React.FC<ThreeDaysForecastProps> = ({data, index}) => {
+const FiveDaysForecast: React.FC<FiveDaysForecastProps> = ({data, index}) => {
     
-  const forecastList = ThreeDaysForecastLogic(data)
-  
+  const forecastList: any = FiveDaysForecastLogic(data)
+
   const date: string = data.list[index].dt_txt.slice(0,10)
-
-  
-  // тест на наличие осадков
-
-
 
   return (
       <>
@@ -42,9 +37,9 @@ const ThreeDaysForecast: React.FC<ThreeDaysForecastProps> = ({data, index}) => {
                 let rainAmount: number = 0
                 if(forecastList[index].rain[i]) { 
                   rainAmount = forecastList[index].rain[i]}
-               return <PageConstructor key = {i} rainAmount = {rainAmount} icon = {forecastList[index].icon[i]} i = {i} forecastList = {forecastList} index = {index} />;
-                             })}
-                           </div>
+                return <PageConstructor key = {i} rainAmount = {rainAmount} icon = {forecastList[index].icon[i]} i = {i} forecastList = {forecastList} index = {index} />;
+              })}
+            </div>
 
           </div>
           
@@ -54,4 +49,4 @@ const ThreeDaysForecast: React.FC<ThreeDaysForecastProps> = ({data, index}) => {
     );
   }
 
-export default ThreeDaysForecast
+export default FiveDaysForecast

@@ -1,0 +1,146 @@
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    max-height: 100px;
+}
+
+.nav-menu {
+    display: flex;
+    flex-direction: row;
+    gap: 100px;
+}
+
+.nav-menu__button {
+    min-width: 100px;
+    max-height: 50px;
+    width: 100%;
+    height: 100%;
+    border: 1px solid var(--border-color);
+    border-radius: 40px;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    cursor: pointer;
+}
+
+.nav-menu__button:hover {
+    background-color: rgba(202, 234, 235, 0.5);
+}
+
+.nav-menu__nav-list {
+    position: absolute;
+    top: 55px;
+    right: 110px;
+    border: 1px solid var(--border-color);
+    background-color: var(--bg-color);
+    min-width: 50px;
+    display: flex;
+    justify-content: center;
+    color: var(--text-color);
+    border-radius: 20px;
+    opacity: 0;
+    transform: translateY(-10px);
+    visibility: hidden;
+    transition: 0.3s;
+}
+
+.nav-menu__nav-list--active {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+    z-index: 10;
+}
+
+.nav-menu__list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    padding: 0;
+}
+
+.nav-menu__item {
+    list-style: none;
+    text-align: center;
+}
+
+.nav-menu__link {
+    display: inline-block;
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+    min-width: 100px;
+    min-height: 15px;
+    border-radius: 20px;
+}
+
+.nav-menu__link:hover {
+    background-color: rgba(202, 234, 235, 0.5);
+}
+
+.celsius{
+    font-family: 'SFPro';
+    color: #fff;
+    font-size: 28px;
+}
+
+.fahrenheit{
+    font-family: 'SFPro';
+    color: #fff;
+    font-size: 28px;
+}
+
+.nav-menu__switch{
+
+    display: inline-block;
+    position: relative;
+    width: 150px;
+    height: 50px;
+    background-color: rgb(12, 130, 233);
+    border-radius: 40px;
+}
+
+.nav-menu__input{
+    height: 0;
+    width: 0;
+    opacity: 0;
+}
+
+.nav-menu__switch-slider{
+
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    border-radius: 34px;
+    background-color: var(--bg-color);
+    transition: 0.3s;
+}
+
+.nav-menu__switch-slider::before{
+
+    content: '';
+    position: absolute;
+    cursor: pointer;
+    left: 0px;
+    bottom: 0px;
+    height: 50px;
+    width: 75px;
+    border-radius: 50px;
+    background-color: var(--accent-color);
+    transition: 0.3s;
+}
+
+.nav-menu__input + .nav-menu__switch-slider{
+    box-shadow: 0 0 5px rgb(255, 255, 255);
+}
+
+
+
+.nav-menu__input:checked + .nav-menu__switch-slider::before{
+    transform: translateX(75px);
+
+}
