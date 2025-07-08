@@ -1,13 +1,18 @@
 import {useState, useRef} from "react";
+import getDate from "../utils/getDate";
 import useClickOutside from "../../hooks/useClickOutside";
 
 
 const Header = () =>{
     
-    const date: Date = new Date()
+    const date: string = getDate()
     const [isOpen, setIsOpen] = useState<boolean>(false)
-    const menuRef= useRef<HTMLBodyElement>(null)
-    useClickOutside(menuRef, () => {if(isOpen) setTimeout(() => setIsOpen(false), 50)})
+    const menuRef= useRef<HTMLElement>(null)
+    const butRef = useRef<HTMLButtonElement>(null)
+    const celiusStr: string = '°C'
+    const fahrenheitStr: string = '°F'
+    useClickOutside(butRef, menuRef, () => {if(isOpen) setTimeout(() => setIsOpen(false), 50)})
+
 
     return(
 
@@ -15,14 +20,31 @@ const Header = () =>{
 
             <div className="header">
             <div className="header__data">
-                <h1 className="h1">{date.toDateString()}</h1>
+                <span>{date}</span>
             </div>
 
             <div className="nav-menu">
-                <input className="nav-menu__search-input" type="text" />
+                <label className="nav-menu__input-field">
+                    <svg
+                        className="nav-menu__icon"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        width="20"
+                        height="20">
+                    <path
+                        d="M21 21l-4.35-4.35M11 18a7 7 0 1 1 0-14 7 7 0 0 1 0 14z"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        fill="none"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        />
+                    </svg>
+                    <input className="nav-menu__search-input" type="text" placeholder="Search your sity" />
+                </label>
 
                 <div className="nav-menu__slider">
-                <button className="nav-menu__button" onClick={() => setIsOpen(!isOpen)}>ENG</button>
+                <button className="nav-menu__button" ref ={butRef} onClick={() => setIsOpen(!isOpen)}>ENG</button>
 
                 <nav className={`nav-menu__nav-list ${isOpen ? 'nav-menu__nav-list--active' : ''}`} ref={menuRef}>
                     <ul className="nav-menu__list">
@@ -38,8 +60,8 @@ const Header = () =>{
                 <label className="nav-menu__switch">
                 <input type="checkbox" className="nav-menu__input" />
                 <span className="nav-menu__switch-slider">
-                    <p className="celsius">C</p>
-                    <p className="fahrenheit">F</p>
+                    <p className="celsius">{celiusStr}</p>
+                    <p className="fahrenheit">{fahrenheitStr}</p>
                 </span>
                 </label>
             </div>

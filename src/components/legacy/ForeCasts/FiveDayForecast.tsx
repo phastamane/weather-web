@@ -1,6 +1,6 @@
 import React from "react";
 import { FiveDaysForecastLogic } from "./FiveDayForecastLogic.tsx";
-import { getWeekDay, getMonth, PageConstructor } from '../utils/dateHelpers.tsx';
+import { getWeekDay, getMonth, PageConstructor } from '../../utils/dateHelpers.tsx';
 
 
 type FiveDaysForecastProps = {

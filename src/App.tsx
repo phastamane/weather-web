@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 import CityPage from './components/legacy/CityPages/CityPage';
 
-import {dailyForecast, fiveDaysForecast, threeDaysForecast} from './components/legacy/utils/ButtonsFuncs';
+import {dailyForecast, fiveDaysForecast, threeDaysForecast} from './components/utils/ButtonsFuncs';
 
 
 

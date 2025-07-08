@@ -1,15 +1,20 @@
-
+import React from "react";
 import {useEffect} from "react";
 
 
-const useClickOutside = (ref: any, callback: Function) => {
+const useClickOutside = (butRef: React.RefObject<HTMLButtonElement | null>,
+                            ref: React.RefObject<HTMLElement | null>,
+                                callback: () => void) => {
+  const handleClick = (e: MouseEvent) => {
+    const target = e.target as Node;
 
-    const handleClick: any = (e: any) =>{
-    
-        if (ref.current && !ref.current.contains(e.target)){
-            callback();
+    const menuEl = ref.current;
+    const buttonEl = butRef.current;
+
+    if (menuEl && !menuEl.contains(target) && buttonEl && !buttonEl.contains(target)) {
+      callback();
     }
-}
+  };
 
     useEffect(() => {
         document.addEventListener('mousedown', handleClick);

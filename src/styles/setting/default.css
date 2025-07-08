@@ -33,5 +33,12 @@ body {
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'SFProMedium';
+    src: url('../../fonts/SFProText-Medium.ttf') format('truetype');
+    font-weight: 500; /* необязательно, но полезно */
+    font-style: normal;
+}
+
 
 
