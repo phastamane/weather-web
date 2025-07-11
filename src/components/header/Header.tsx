@@ -3,15 +3,26 @@ import getDate from "../utils/getDate";
 import useClickOutside from "../../hooks/useClickOutside";
 
 
-const Header = () =>{
+
+type HeaderProps = {
+
+    request: string
+    setRequest: (value: string) => void
     
-    const date: string = getDate()
+}
+
+function Header({request, setRequest}: HeaderProps){
+    
+    const [inputValue, setInputValue] = useState(""); 
+    const { dateLine, timeLine } = getDate();
     const [isOpen, setIsOpen] = useState<boolean>(false)
     const menuRef= useRef<HTMLElement>(null)
     const butRef = useRef<HTMLButtonElement>(null)
     const celiusStr: string = '°C'
     const fahrenheitStr: string = '°F'
-    useClickOutside(butRef, menuRef, () => {if(isOpen) setTimeout(() => setIsOpen(false), 50)})
+
+    useClickOutside(butRef, menuRef, () => {if(isOpen) setTimeout(() => setIsOpen(false), 50)});
+
 
 
     return(
@@ -20,7 +31,7 @@ const Header = () =>{
 
             <div className="header">
             <div className="header__data">
-                <span>{date}</span>
+                <span>{dateLine} {timeLine}</span>
             </div>
 
             <div className="nav-menu">
@@ -30,7 +41,9 @@ const Header = () =>{
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24"
                         width="20"
-                        height="20">
+                        height="20"
+                        onClick={() => {setRequest(inputValue)}}>
+                        
                     <path
                         d="M21 21l-4.35-4.35M11 18a7 7 0 1 1 0-14 7 7 0 0 1 0 14z"
                         stroke="currentColor"
@@ -40,8 +53,28 @@ const Header = () =>{
                         strokeLinejoin="round"
                         />
                     </svg>
-                    <input className="nav-menu__search-input" type="text" placeholder="Search your sity" />
-                </label>
+                    
+                    <input
+                        className="nav-menu__search-input"
+                        type="text"
+                        placeholder="Search your city"
+                        value={inputValue}
+                        onChange={(e) =>( setInputValue(e.target.value))}
+                        onKeyDown={e => {
+                            (e.key === 'Enter' && inputValue.trim() !== '')? setRequest(inputValue):false
+                        }}
+                    />
+                    
+                    {request && (
+                        <button
+                        type="button"
+                        className="nav-menu__clear-button"
+                        onClick={() => setInputValue("")}
+                        >
+                        ✕
+                        </button>
+                    )}
+                    </label>
 
                 <div className="nav-menu__slider">
                 <button className="nav-menu__button" ref ={butRef} onClick={() => setIsOpen(!isOpen)}>ENG</button>
@@ -58,7 +91,14 @@ const Header = () =>{
                 </div>
 
                 <label className="nav-menu__switch">
-                <input type="checkbox" className="nav-menu__input" />
+                <input type="checkbox" className="nav-menu__input"
+                        value={request}
+                        onChange={e => setRequest(e.target.value)}
+                         onKeyDown={e => {
+                            if (e.key === 'Enter') {
+                                }
+                            }
+                        } />
                 <span className="nav-menu__switch-slider">
                     <p className="celsius">{celiusStr}</p>
                     <p className="fahrenheit">{fahrenheitStr}</p>

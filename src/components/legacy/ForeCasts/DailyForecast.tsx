@@ -1,5 +1,5 @@
 import React from "react";
-import { getWeekDay, getMonth, getImage } from '../../utils/dateHelpers.tsx';
+import { getWeekDay, getMonth, getImage, getWindDirection } from '../../utils/dateHelpers.tsx';
 
 type DailyForecastProps = {
     data: any,
@@ -14,6 +14,8 @@ const DailyForecast: React.FC<DailyForecastProps> = ({data, index}) => {
     const weekDay: string = getWeekDay(date)
     const month: string = getMonth(date)
     const icon: string = data.list[index].weather[0].icon
+    const wind: number = data.list[index].wind.speed
+
     let weatherDescription: string = data.list[index].weather[0].description
     weatherDescription = weatherDescription[0].toLocaleUpperCase() + weatherDescription.slice(1)
     let rainAmount: number = 0
@@ -30,12 +32,7 @@ const DailyForecast: React.FC<DailyForecastProps> = ({data, index}) => {
           <div
             className="child-times"
             key={index}
-            style={{
-              animation: 'fadeIn 0.6s ease forwards',
-              animationDelay: `${index * 0.2}s`,
-              opacity: 0,
-              transform: 'translateY(20px)',
-            }}
+
           >
             <h3>
               {weekDay}
@@ -47,6 +44,12 @@ const DailyForecast: React.FC<DailyForecastProps> = ({data, index}) => {
               {Math.round(data.list[index].main.temp)}
               <strong> °С</strong>
             </p>
+            <p>
+              {Math.round(wind)} м/с
+            </p>
+            <span>
+              {getWindDirection(wind)}
+            </span>
             <div id="rain">
               {getImage(icon)}
               <p id="rainfall">

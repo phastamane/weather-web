@@ -18,7 +18,7 @@ export function getWeekDay(date: string, num: number = 0): string{
     
     const url: string = `https://openweathermap.org/img/wn/${current}@2x.png`
     
-    return <img src = {url}  id = 'weather-icon'/>
+    return <img className="weather-icon" src = {url}  id = 'weather-icon'/>
   }
 
   // функция для получения 3-х уникальных чисел дней
@@ -67,4 +67,26 @@ export function PageConstructor({rainAmount, icon, i, forecastList, index} : Pag
         </>
       );
 
+}
+
+export function getWindDirection(deg?: number): string {
+  if (typeof deg !== 'number' || isNaN(deg)) return 'Неизвестно';
+
+  const directions = [
+    { name: 'С', arrow: '↑' },
+    { name: 'СВ', arrow: '↗' },
+    { name: 'В', arrow: '→' },
+    { name: 'ЮВ', arrow: '↘' },
+    { name: 'Ю', arrow: '↓' },
+    { name: 'ЮЗ', arrow: '↙' },
+    { name: 'З', arrow: '←' },
+    { name: 'СЗ', arrow: '↖' }
+  ];
+
+  const index = Math.round(deg / 45) % 8;
+  const direction = directions[index];
+
+  if (!direction) return 'Неизвестно';
+
+  return `${direction.name}${direction.arrow}`;
 }

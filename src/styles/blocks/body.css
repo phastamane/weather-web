@@ -1,0 +1,89 @@
+.main__forecast{
+
+    display: flex;
+    flex-direction: column;
+
+    min-height: 400px;
+    max-width: 1200px;
+    background-color: var(--bg-color);
+    border-radius: 80px;
+    padding: 15px 50px;
+
+}
+.main__values{
+    display: flex;
+    flex-direction: row;
+}
+
+.day-values {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'SFProMedium';
+  font-size: 36px;
+  color: var(--text-color);
+  width: 100%;
+  padding: 20px 0;
+  gap: 10px
+}
+
+.main__line {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 4px;
+  font-size: 36px;
+  line-height: 1.2;
+  filter: grayscale(99%);
+}
+
+.main__description {
+  font-family: 'SFPro';
+  font-size: 20px;
+  margin-top: 4px;
+  text-align: center;
+}
+
+.main__city-name{
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.body-light{
+
+    display: flex;
+    flex-direction: column;
+    font-family: 'SFPro';
+    font-size: 20px;
+    
+}
+
+.main__times{
+
+    display: flex;
+    flex-direction: row;
+    font-family: 'SFPro';
+    color: #000;
+    gap: 20px;
+    max-width: 1200px;
+    overflow-x: scroll;
+}
+
+.child-times{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--accent-color);
+    border-radius: 40px;
+    min-width: 140px;
+}
+
+#rainfall{
+    text-align: center;
+}
+
+.weather-icon{
+    display: flex;
+    justify-self: center;
+}
