@@ -50,27 +50,33 @@ function Body ({request}: BodyProps) {
     return (
 
             <>
-                <div className="main__forecast">
-                    <div className="main__values">
-                        {Object.entries(values).map(([key, { value, unit, description, windDirection }]) => (
-                        <div key={key} className="day-values">
-                            <div className="main__line">
-                            <span>{value}</span>
-                            <div className="body-light">{unit && ` ${unit}`}</div>
+                <div className="main">
+                    <div className="main__forecast">
+                        <div className="main__values">
+                            <span>погода сейчас</span>
+                            {Object.entries(values).map(([key, { value, unit, description }]) => (
+                            <div key={key} className="day-values">
+                                <div className="main__line">
+                                
+                                <span>{value}</span>
+                                <div className="body-light">{unit && ` ${unit}`}</div>
+                                </div>
+                                {description && <div className="main__description body-light">{description}</div>}
                             </div>
-                            {description && <div className="main__description body-light">{description}</div>}
+                            ))}
                         </div>
-                        ))}
+                    
+    
+    
+                        {data &&
+                           <div className="main__times-wrapper">
+                                <div className="main__times">
+                                {[...Array(8)].map((_,i) => 
+                                (<DailyForecast key = {i} data={data} index = {i+1}/>)
+                                    )}
+                            </div>
+                           </div>}
                     </div>
-                
-
-
-                    {data &&
-                        <div className="main__times">
-                        {[...Array(9)].map((_,i) => 
-                        (<DailyForecast key = {i} data={data} index = {i}/>)
-                            )}
-                    </div>}
                 </div>
         
             </>

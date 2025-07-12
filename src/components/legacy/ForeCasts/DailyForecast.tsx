@@ -15,6 +15,7 @@ const DailyForecast: React.FC<DailyForecastProps> = ({data, index}) => {
     const month: string = getMonth(date)
     const icon: string = data.list[index].weather[0].icon
     const wind: number = data.list[index].wind.speed
+    const deg: number =  data.list[index].wind.deg
 
     let weatherDescription: string = data.list[index].weather[0].description
     weatherDescription = weatherDescription[0].toLocaleUpperCase() + weatherDescription.slice(1)
@@ -34,30 +35,30 @@ const DailyForecast: React.FC<DailyForecastProps> = ({data, index}) => {
             key={index}
 
           >
-            <h3>
+            <p>
               {weekDay}
               <br />
-              {day} {month}
-            </h3>
+              <strong>{day}</strong> {month}
+            </p>
             <h3>{data.list[index].dt_txt.slice(11, 16)}</h3>
             <p>
-              {Math.round(data.list[index].main.temp)}
-              <strong> °С</strong>
+              <strong>{Math.round(data.list[index].main.temp)}</strong>
+              °С
             </p>
             <p>
-              {Math.round(wind)} м/с
+             <strong> {Math.round(wind)}</strong> м/с
             </p>
             <span>
-              {getWindDirection(wind)}
+              {getWindDirection(deg)}
             </span>
             <div id="rain">
               {getImage(icon)}
               <p id="rainfall">
-                <strong>
-                  {weatherDescription + ","}
+                
+                  {weatherDescription}
                   <br />
                   {rainAmount ? rainAmount + ' мм' : "без осадков"}
-                </strong>
+                
                 </p>
           </div>
           </div>

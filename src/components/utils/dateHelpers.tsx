@@ -1,6 +1,6 @@
 
 export function getWeekDay(date: string, num: number = 0): string{
-    const days: string [] = ["Воскресенье", "Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота"];
+    const days: string [] = ["ВС", "ПН", "ВТ", "СР", "ЧТ", "ПТ", "СБ"];
     const processedData: Date = new Date(date)
     processedData.setDate(processedData.getDate() + num)
     return days[processedData.getDay()]

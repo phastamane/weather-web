@@ -16,7 +16,7 @@ html {
 :root {
     --accent-color: #5DDE95;
     --text-color: #fff;
-    --bg-color: #2e2f3a;
+    --bg-color: rgb(46, 47, 58);
     --border-color: #cdd2da;
 
 }

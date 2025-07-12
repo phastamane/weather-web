@@ -4,15 +4,25 @@
     flex-direction: column;
 
     min-height: 400px;
-    max-width: 1200px;
+    max-width: 1140px;
     background-color: var(--bg-color);
     border-radius: 80px;
-    padding: 15px 50px;
+    padding: 15px 0px;
+    margin-left: 50px;
 
 }
 .main__values{
     display: flex;
     flex-direction: row;
+    font-family: 'SFProMedium';
+    font-size: 40px;
+    color: #000;
+    background-color: var(--accent-color);
+    align-items: center;
+    border-radius: 40px;
+    margin: 20px;
+    padding: 0 20px;
+
 }
 
 .day-values {
@@ -21,7 +31,7 @@
   align-items: center;
   font-family: 'SFProMedium';
   font-size: 36px;
-  color: var(--text-color);
+  color:#000;
   width: 100%;
   padding: 20px 0;
   gap: 10px
@@ -33,7 +43,7 @@
   gap: 4px;
   font-size: 36px;
   line-height: 1.2;
-  filter: grayscale(99%);
+
 }
 
 .main__description {
@@ -58,29 +68,54 @@
     font-size: 20px;
     
 }
+/* .main__times-wrapper {
+    position: relative;
+    max-width: 1200px;
+    overflow: hidden;
+    background-color: var(--bg-color);
+    border-bottom-right-radius: 40px;
+    border-bottom-left-radius: 40px;
+} */
 
-.main__times{
 
+.main__times {
     display: flex;
     flex-direction: row;
-    font-family: 'SFPro';
-    color: #000;
+    max-width: 1000px;
+    margin: 0 10px;
     gap: 20px;
-    max-width: 1200px;
-    overflow-x: scroll;
+    /* overflow-x: scroll; */
+    font-family: 'SFPro';
+    color: var(--bg-color);
+    /* position: relative;
+    z-index: 1; */
+    padding: 10px;
 }
+
+/* .main__times-wrapper::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 2;
+    box-shadow: 
+        inset 20px 0 10px -5px rgba(0, 0, 0, 0.8),  */
 
 .child-times{
     display: flex;
     flex-direction: column;
     align-items: center;
+    font-family: 'SFPro';
     background-color: var(--accent-color);
     border-radius: 40px;
-    min-width: 140px;
+    min-width: 120px;
+    width: 100%;
+    text-align: center;
 }
 
 #rainfall{
     text-align: center;
+    font-size: 16px;
 }
 
 .weather-icon{
