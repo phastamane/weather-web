@@ -6,20 +6,29 @@ export function getWeekDay(date: string, num: number = 0): string{
     return days[processedData.getDay()]
   }
   
-  export function getMonth(date: string, num: number = 0): string{
-    const months: string [] = ["Янв", "Фев", "Марта", "Апр", "Мая", "Июня", "Июля", "Авг", "Сент", "Окт", "Нояб", "Дек" ];
-    const processedData: Date = new Date(date)
-    processedData.setDate(processedData.getDate() + num)
+export function getMonth(date: string, num: number = 0): string{
+  const months: string [] = ["Янв", "Фев", "Марта", "Апр", "Мая", "Июня", "Июля", "Авг", "Сент", "Окт", "Нояб", "Дек" ];
+  const processedData: Date = new Date(date)
+  processedData.setDate(processedData.getDate() + num)
+
+  return months[processedData.getMonth()]
+}
+
+export function getImage(current: string){
   
-    return months[processedData.getMonth()]
-  }
- 
-  export function getImage(current: string){
-    
-    const url: string = `https://openweathermap.org/img/wn/${current}@2x.png`
-    
-    return <img className="weather-icon" src = {url}  id = 'weather-icon'/>
-  }
+  const url: string = `https://openweathermap.org/img/wn/${current}@2x.png`
+  
+  return <img className="weather-icon" src = {url}  id = 'weather-icon'/>
+}
+
+export function getCoord(data: any){
+  
+  const coordStr = data?.featureMember?.Poin?.pos
+  let coord: [] = coordStr.split(' ');
+  return coord.map(Number)
+}
+
+
 
   // функция для получения 3-х уникальных чисел дней
 

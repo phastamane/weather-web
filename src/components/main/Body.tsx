@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import getResponse from "../utils/getResponse";
 import { getImage, getWindDirection } from "../utils/dateHelpers";
 import DailyForecast from "../legacy/ForeCasts/DailyForecast";
+import Map from "./map/Map";
 
 type BodyProps = {
 
@@ -36,7 +37,7 @@ function Body ({request}: BodyProps) {
     useEffect(() => {
     const fetchData = async () => {
         if (request.trim() !== '') {
-        const result = await getResponse(request);
+        const result = await getResponse(request, 'weather');
         setData(result);
         console.log("Response:", result.city.name);
         }
@@ -77,7 +78,10 @@ function Body ({request}: BodyProps) {
                             </div>
                            </div>}
                     </div>
+                    <Map
+                        city={request}/>
                 </div>
+                
         
             </>
 
