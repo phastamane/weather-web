@@ -1,5 +1,7 @@
 import { useEffect, useRef } from "react";
 import getResponse from "../../utils/getResponse";
+import {YMapDefaultMarker} from '@yandex/ymaps3-default-ui-theme';
+import type {LngLat} from '@yandex/ymaps3-types';
 
 type MapProps = { city: string };
 declare const ymaps3: any;
@@ -18,10 +20,11 @@ function Map({ city }: MapProps) {
         YMap,
         YMapDefaultSchemeLayer,
         YMapLayer,
-        YMapMarker,
+        YMapDefaultFeaturesLayer
       } = ymaps3;
 
       const coord = await getResponse(city, "map");
+      const content = document.createElement('section');
 
       if (!mapRef.current || destroyed) return;
 
@@ -43,7 +46,7 @@ function Map({ city }: MapProps) {
 
       // Добавляем схему и слои
       const schemeSource = new YMapDefaultSchemeLayer({
-        theme: "dark",
+        theme: "light",
         visible: false,
         source: "scheme",
       });
@@ -53,27 +56,27 @@ function Map({ city }: MapProps) {
       map.addChild(new YMapLayer({ zIndex: 2, source: "scheme", type: "labels" }));
       map.addChild(new YMapLayer({ zIndex: 3, source: "scheme", type: "buildings" }));
       map.addChild(new YMapLayer({ zIndex: 4, source: "scheme", type: "icons" }));
+      map.addChild(new YMapDefaultFeaturesLayer());
+      const marker = new YMapDefaultMarker(
+      {
+        coordinates: coord as LngLat,
+        title: 'North America',
+        subtitle: 'The biggest amount of islands',
+        color: 'lavender',
+        size: 'normal',
+        iconName: 'fallback'
+        }
+      );
+     
+
+      map.addChild(marker)
+      
+
 
       mapInstanceRef.current = map;
 
-      // Удаляем старый маркер
-      if (markerRef.current) {
-        map.removeChild(markerRef.current);
-        markerRef.current = null;
-      }
-      const markerEl = document.createElement("div");
-      markerEl.className = "marker";
-      markerEl.style.width = "20px";
-      markerEl.style.height = "20px";
-      markerEl.style.border = "2px solid #fff";
-      markerEl.style.borderRadius = "50%";
-      markerEl.style.backgroundColor = "transparent";
-      markerEl.style.boxShadow = "0 0 5px rgba(255,255,255,0.5)";
 
 
-      const marker = new YMapMarker({ coordinates: coord }, markerEl);
-      map.addChild(marker);
-      markerRef.current = marker;
     }
 
     initMap();

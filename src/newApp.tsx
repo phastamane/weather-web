@@ -1,10 +1,10 @@
 import { StrictMode, useState } from "react";
 import Header from "./components/header/Header";
 import Body from "./components/main/Body";
-import Map from "./components/main/map/Map";
+
 
 function NewApp(){
-        const [request, setRequest] = useState<string>('rostov-na-donu')
+        const [request, setRequest] = useState<string>('bataysk')
     return(
         
         <>
