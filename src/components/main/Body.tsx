@@ -60,7 +60,7 @@ function Body ({request}: BodyProps) {
                                 <div className="main__line">
                                 
                                 <span>{value}</span>
-                                <div className="body-light">{unit && ` ${unit}`}</div>
+                                <div className="body-light">{unit && `${unit}`}</div>
                                 </div>
                                 {description && <div className="main__description body-light">{description}</div>}
                             </div>
@@ -79,7 +79,7 @@ function Body ({request}: BodyProps) {
                            </div>}
                     </div>
                     <Map
-                        city={request}/>
+                        city={request} />
                 </div>
                 
         

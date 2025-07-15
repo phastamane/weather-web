@@ -134,3 +134,30 @@
     background-color: aliceblue;
     border-radius: 80px;
 }
+
+.ymaps3x0--top-engine-container{
+    
+    width: 100px;
+    font-family: 'SFPro';
+    font-size: 20px;
+    color: #fff;
+    background-color: #fff;
+
+}
+
+.popup-div{
+
+    background-color: rgba(255, 255, 255, 0.85);
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    color: #000;
+    font-size: 14px;
+    min-width: 200px;
+    max-width: 300px;
+    position: relative;
+    top: 20px;
+    right: 5px;
+
+        
+}
