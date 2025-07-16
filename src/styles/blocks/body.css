@@ -153,11 +153,16 @@
     box-shadow: 0 4px 10px rgba(0,0,0,0.3);
     color: #000;
     font-size: 14px;
-    min-width: 200px;
+    min-width: 150px;
     max-width: 300px;
     position: relative;
     top: 20px;
     right: 5px;
 
         
+}
+
+ResponsiveLine{
+    color: #fff;
+    
 }

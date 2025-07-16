@@ -30,7 +30,7 @@ function Map({ city}: MapProps) {
         YMapDefaultFeaturesLayer
       } = ymaps3;
 
-      const coord = await getResponse(city, "map");
+      //const coord = await getResponse(city, "map");
 
 
       if (!mapRef.current || destroyed) return;

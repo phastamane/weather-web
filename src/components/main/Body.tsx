@@ -78,8 +78,8 @@ function Body ({request}: BodyProps) {
                             </div>
                            </div>}
                     </div>
-                    <Map
-                        city={request} />
+                    {/* <Map
+                        city={request} /> */}
                 </div>
                 
         
