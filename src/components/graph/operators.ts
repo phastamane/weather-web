@@ -1,4 +1,8 @@
 import {Theme} from "@nivo/theming"
+import { create } from "zustand"
+
+
+
 
 
 export const myTheme: Partial<Theme> = {
@@ -137,7 +141,7 @@ export const myTheme: Partial<Theme> = {
 
 export const data = [
   {
-    "id": "japan",
+    id: "japan",
     "data": [
       {
         "x": "1",

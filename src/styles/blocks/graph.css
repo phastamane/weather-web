@@ -1,0 +1,55 @@
+.graph{
+    max-width: 1150px;
+    background-color: var(--bg-color);
+    border-radius: 80px;
+    margin-left: 50px;
+    margin-top: 50px;
+    padding-top: 25px;
+    justify-items: flex-end;
+
+}
+.buttons-div {
+    display: flex;
+    gap: 15px;
+    margin-right: 100px;
+    border-radius: 20px;
+    background-color: #1e1f23;
+    padding: 0 10px;
+}
+
+.buttons-div button{
+    all: unset;
+    cursor: pointer;
+
+    color: var(--text-color);
+    font-family: "SFPro";
+    font-size: 16px;
+    max-width: 200px;
+    padding: 10px;
+
+    height: 25px;
+    border-radius: 20px;
+    transition: 0.5s;
+}
+
+.buttons-div button:active{
+    background-color: aliceblue;
+    font-size: 17px;
+    transition: 0.2s;
+}
+
+button.clicked{
+    background-color: var(--accent-color);
+    color: #000
+}
+.buttons-div button:hover {
+    background-color:#ffffff;
+    color: #000000
+}
+button.clicked:hover{
+    background-color: var(--accent-color);
+    color: #000000;
+
+}
+
+

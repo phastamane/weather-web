@@ -1,4 +1,4 @@
-import {useState, useRef} from "react";
+import {useState, useRef, useEffect} from "react";
 import getDate from "../utils/getDate";
 import useClickOutside from "../../hooks/useClickOutside";
 
@@ -7,11 +7,12 @@ import useClickOutside from "../../hooks/useClickOutside";
 type HeaderProps = {
 
     request: string
-    setRequest: (value: string) => void
+    setRequest: (value: string) => void,
+    setActiveButton: (index: number | undefined) => void;
     
 }
 
-function Header({request, setRequest}: HeaderProps){
+function Header({request, setRequest, setActiveButton}: HeaderProps){
     
     const [inputValue, setInputValue] = useState(""); 
     const { dateLine, timeLine } = getDate();
@@ -23,7 +24,9 @@ function Header({request, setRequest}: HeaderProps){
 
     useClickOutside(butRef, menuRef, () => {if(isOpen) setTimeout(() => setIsOpen(false), 50)});
 
-
+    useEffect(() => {
+        setActiveButton(0);
+    }, [request]);
 
     return(
 

@@ -1,29 +1,73 @@
 import { Line} from "@nivo/line";
-import { data, myTheme } from "./operators";
+import {myTheme } from "./operators";
+import { useDataStore } from "../../hooks/store";
+import { useState, useEffect } from "react";
+
 type MyLineProps = {
   data: {
     id: string
     data: {
-      x: string
-      y: number
+      x: string | number,
+      y: number 
     }[]
-  }[]
+  }[],
+  activeButton: number | undefined;
+  setActiveButton: (index: number | undefined) => void;
 }
 
 
 
 
 
-const MyLine = ({ data  }: MyLineProps) => (
-          <Line
+const MyLine = ({ data, activeButton, setActiveButton }: MyLineProps) => {
+  const setTemp = useDataStore(state => state.setTemp);
+  const setHudimity = useDataStore(state => state.setHudimity);
+  const setWind = useDataStore(state => state.setWind);
+
+  const buttonsFunc = [setTemp, setHudimity, setWind];
+  const buttonsName = ['температура', 'влажность', 'ветер'];
+  
+
+
+
+  return (
+    <div className="graph">
+      <div className="buttons-div">
+        {buttonsName.map((label, index) => (
+          <button
+            key={index}
+            onClick={() => {
+              setActiveButton(index);
+              buttonsFunc[index]();
+
+            }}
+            className={activeButton === index ? 'clicked' : ''}
+          >
+            {label}
+          </button>
+        ))}
+
+      </div>
+
+      <Line
         data={data}
-        width={1300}
+        width={1150}
         height={400}
-        margin={{ top: 50, right: 110, bottom: 50, left: 100 }}
+        colors="#5DDE95"
+        curve="monotoneX"
+        margin={{ top: 35, right: 110, bottom: 50, left: 100 }}
         theme={myTheme}
-        yScale={{ type: 'linear', min: 'auto', max: 'auto', stacked: true, reverse: false }}
-        axisBottom={{ legend: 'transportation', legendOffset: 45 }}
-        axisLeft={{ legend: 'count', legendOffset: -60 }}
+        yScale={{ type: 'linear', min: 'auto', max: 'auto', stacked: true }}
+        axisBottom={{
+          tickSize: 5,
+          tickPadding: 15,
+          legendPosition: 'middle',
+          legendOffset: 40
+        }}
+        axisLeft={{
+          legendOffset: -60,
+          tickPadding: 15
+        }}
         pointSize={10}
         pointColor={{ theme: 'background' }}
         pointBorderWidth={2}
@@ -31,19 +75,14 @@ const MyLine = ({ data  }: MyLineProps) => (
         pointLabelYOffset={-12}
         enableTouchCrosshair={true}
         useMesh={true}
-        legends={[
-    {
-      anchor: 'bottom-right',
-      direction: 'column',
-      translateX: 100,
-      itemWidth: 80,
-      itemHeight: 22,
-      symbolShape: 'circle'
-    }
-  ]}
-        
-/>
+        legends={[]}
+      />
+    </div>
+  );
+};
 
-)
+      
+
+
 
 export default MyLine

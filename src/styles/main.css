@@ -1,4 +1,5 @@
 @import './setting/normalize.css';
 @import './setting/default.css';
 @import './blocks/header.css';
-@import './blocks/body.css'
+@import './blocks/body.css';
+@import './blocks/graph.css'

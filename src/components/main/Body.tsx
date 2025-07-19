@@ -8,6 +8,7 @@ import Map from "./map/Map";
 type BodyProps = {
 
     request: string
+
 }
 
 type WeatherValue = {
@@ -46,7 +47,7 @@ function Body ({request}: BodyProps) {
 
     fetchData();
     }, [request]);
-        console.log("Response:", data);
+        
 
     return (
 
