@@ -18,13 +18,14 @@ html {
     --text-color: #fff;
     --bg-color: rgb(46, 47, 58);
     --border-color: #cdd2da;
-
+    --page-color: #1e1f23;
 }
 
 body {
     margin: 0;
     padding: 0;
 }
+
 
 @font-face {
     font-family: 'SFPro';

@@ -1,7 +1,9 @@
 import { StrictMode, useState, useEffect } from "react";
 import Header from "./components/header/Header";
 import Body from "./components/main/Body";
+import Map from "./components/main/map/Map.tsx";
 import Graph from "./components/graph/Graph.tsx"
+import ThreeDaysForecast from "./components/threeDaysForecast/ThreeDaysForecast.tsx";
 import { useDataStore } from './hooks/store.ts'
 
 function NewApp(){
@@ -21,19 +23,34 @@ function NewApp(){
         <>
         
 
-            <Header
-                request = {request} setRequest = {setRequest}
-                setActiveButton={setActiveButton}
-            />
-            <Body
-                request = {request}
-            />
-            <Graph
-                data={dataStore}
-                activeButton={activeButton}
-                setActiveButton={setActiveButton}
-            />
+            <div className="components">
+                    <Header
+                        request = {request} setRequest = {setRequest}
+                        setActiveButton={setActiveButton}
+                    />
 
+               <div className="columns">
+                    <div className="left-column">
+    
+                        <Body
+                            request = {request}
+                        />
+                        <Graph
+                            data={dataStore}
+                            activeButton={activeButton}
+                            setActiveButton={setActiveButton}
+                        />
+                    </div>
+                    <div className="right-column">
+                        
+                        {<Map city={request} />}
+
+                        <div className="three-days-div">
+                            {[...Array(3)].map((_, i) => <ThreeDaysForecast key = {i} index = {i + 1} request={request}/>)}
+                        </div>
+                    </div>
+               </div>
+            </div>
              
 
         </>

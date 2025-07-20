@@ -1,0 +1,13 @@
+.components{
+
+}
+.columns{
+    display: flex;
+    justify-content: space-around;
+}
+
+.right-column{
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}

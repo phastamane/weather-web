@@ -11,6 +11,11 @@ interface ForecastDay {
 
 export function ThreeDaysForecastLogic(data: any): ForecastDay []{
     
+    if (!data || !Array.isArray(data.list)) {
+    
+    return [];
+  }
+
     const today: number = (new Date()).getDate();
     const allDays: number [] = [];
     const times = [0, 6, 12, 18];
@@ -39,7 +44,9 @@ export function ThreeDaysForecastLogic(data: any): ForecastDay []{
       if (timeIndex === -1) continue;
 
       const dayOffset = requiredDate - today;
-      if (dayOffset > 4) continue;
+      if (dayOffset < 1 || dayOffset > 4) continue;
+
+
 
       const weatherDescriptionRaw = data.list[i].weather[0].description;
       const weatherDescription =
@@ -61,6 +68,7 @@ export function ThreeDaysForecastLogic(data: any): ForecastDay []{
       daysCard[i].day = day;
     }
   });
+  
 
   return daysCard
 }

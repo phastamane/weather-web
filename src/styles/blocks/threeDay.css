@@ -1,0 +1,48 @@
+.three-days-forecast{
+    display: flex;
+    color: #fff;
+    background-color: var(--page-color);
+    border-radius: 40px;
+    align-items: center;
+    font-family: "SFPro";
+    justify-content: space-between;
+    min-width: 500px;
+    padding-right: 50px;
+
+}
+.three-days-div{
+    display: flex;
+    flex-direction: column;
+    background-color: var(--bg-color);
+    align-items: center;
+    padding: 20px;
+    gap: 20px;
+    border-radius: 40px;
+}
+
+.day-temp{
+    font-size: 40px;
+}
+.day-value{
+    display: flex;
+    font-size: 40px;
+}
+.night-temp{
+    font-size: 20px;
+}
+
+.three-days-forecast__values{
+    display: flex;
+    align-items: center;
+
+}
+.three-days-forecast__date-values{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.month-value{
+    font-size: 20px;
+    padding-top: 20px;
+}
