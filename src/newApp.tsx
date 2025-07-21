@@ -20,9 +20,9 @@ function NewApp(){
         }, [request]);
 
     return(
-        
+       
         <>
-        
+         <StrictMode>
 
             <div className="components">
                     <Header
@@ -55,9 +55,10 @@ function NewApp(){
                </div>
             </div>
 
-             
+             </StrictMode>
 
         </>
+        
     )
 
 }
