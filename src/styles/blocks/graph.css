@@ -53,3 +53,29 @@ button.clicked:hover{
 }
 
 
+@media(max-width: 1280px){
+    .graph{
+    display: flex;
+    flex-direction: column;
+    max-width: 1150px;
+    min-height: 600px;
+    background-color: var(--bg-color);
+    border-radius: 80px;
+    margin-left: 50px;
+    margin-top: 50px;
+    padding-top: 25px;
+    justify-items: center;
+
+}
+.buttons-div {
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    max-width: 60%;
+    gap: 15px;
+    margin-right: 0px;
+    border-radius: 20px;
+    background-color: #1e1f23;
+    padding: 0 10px;
+}
+}

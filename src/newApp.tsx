@@ -4,7 +4,6 @@ import Body from "./components/main/Body";
 import Map from "./components/main/map/Map.tsx";
 import Graph from "./components/graph/Graph.tsx"
 import ThreeDaysForecast from "./components/forecasts/threeDaysForecast/ThreeDaysForecast.tsx";
-import FiveDaysForecast from "./components/forecasts/fiveDaysForecast/FiveDaysForecast.tsx";
 import { useDataStore } from './hooks/store.ts'
 
 function NewApp(){
@@ -36,11 +35,13 @@ function NewApp(){
                         <Body
                             request = {request}
                         />
-                        <Graph
-                            data={dataStore}
-                            activeButton={activeButton}
-                            setActiveButton={setActiveButton}
-                        />
+
+                            <Graph
+                                data={dataStore}
+                                activeButton={activeButton}
+                                setActiveButton={setActiveButton}
+                            />
+
                     </div>
                     <div className="right-column">
                         
@@ -55,7 +56,7 @@ function NewApp(){
                </div>
             </div>
 
-             </StrictMode>
+        </StrictMode>
 
         </>
         

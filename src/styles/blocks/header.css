@@ -159,10 +159,12 @@
   color: var(--text-color);
   cursor: pointer;
   box-shadow: 0 0 5px rgb(255, 255, 255);
+  transition: 0.5s;
 }
 
 .nav-menu__button:hover {
-  background-color: rgba(202, 234, 235, 0.5);
+  background-color: var(--accent-color);
+  color: black
 }
 
 /* ===== TEMPERATURE SWITCH ===== */
@@ -171,6 +173,14 @@
   font-family: 'SFProMedium';
   color: #fff;
   font-size: 20px;
+}
+
+.celsius-black,
+.fahrenheit-black {
+  font-family: 'SFProMedium';
+  color: #000;
+  font-size: 20px;
+  z-index: 10;
 }
 
 .nav-menu__switch {
@@ -193,7 +203,7 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 0 35px;
+  padding: 0 25px;
   position: absolute;
   cursor: pointer;
   top: 0;
@@ -225,4 +235,42 @@
 
 .nav-menu__input:checked + .nav-menu__switch-slider::before {
   transform: translateX(75px);
+}
+
+.error-banner {
+  position: absolute;
+  right: 600px;
+  top: 50px;
+  transform: translate(-50%, -50%) scale(0.9);
+  background: #f44336;
+  color: white;
+  font-family: "SFPro", sans-serif;
+  padding: 20px 30px;
+  border-radius: 40px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  font-size: 20px;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.8s ease, transform 0.8s ease;
+  pointer-events: none;
+}
+
+.error-banner.show {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+  pointer-events: auto;
+}
+
+.error-banner.hide {
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.95);
+  pointer-events: none;
+}
+
+@media (max-width: 1860px){
+  
 }

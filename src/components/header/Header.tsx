@@ -15,6 +15,7 @@ type HeaderProps = {
 function Header({request, setRequest, setActiveButton}: HeaderProps){
     
     const [inputValue, setInputValue] = useState(""); 
+    const [switchTemp, setSwitchTemp] = useState<boolean>(false)
     const { dateLine, timeLine } = getDate();
     const [isOpen, setIsOpen] = useState<boolean>(false)
     const menuRef= useRef<HTMLElement>(null)
@@ -102,9 +103,9 @@ function Header({request, setRequest, setActiveButton}: HeaderProps){
                                 }
                             }
                         } />
-                <span className="nav-menu__switch-slider">
-                    <p className="celsius">{celiusStr}</p>
-                    <p className="fahrenheit">{fahrenheitStr}</p>
+                <span className="nav-menu__switch-slider" onClick={() => setSwitchTemp(!switchTemp)}>
+                    <p className= {switchTemp ? 'celsius' : 'celsius-black'}>{celiusStr}</p>
+                    <p className={switchTemp ? 'fahrenheit-black' : 'fahrenheit'}>{fahrenheitStr}</p>
                 </span>
                 </label>
             </div>

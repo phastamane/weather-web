@@ -135,15 +135,7 @@
     border-radius: 80px;
 }
 
-.ymaps3x0--top-engine-container{
-    
-    width: 100px;
-    font-family: 'SFPro';
-    font-size: 20px;
-    color: #fff;
-    background-color: #fff;
 
-}
 
 .popup-div{
 
@@ -168,3 +160,79 @@ ResponsiveLine{
 }
 
 
+@media (max-width: 1280px){
+
+    .main{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .main__forecast{
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        min-height: 1000px;
+        min-width: 0;
+        max-width: 700px;
+        background-color: var(--bg-color);
+        border-radius: 80px;
+        padding: 15px 0px;
+        margin-left: 50px;
+
+    }
+
+    .main__times{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        max-width: 600px;
+
+    }
+
+    .main__times {
+    display: flex;
+
+    max-width: 1000px;
+    margin: 0 10px;
+    gap: 20px;
+    /* overflow-x: scroll; */
+    font-family: 'SFPro';
+    color: var(--bg-color);
+    /* position: relative;
+    z-index: 1; */
+    padding: 10px;
+}
+.child-times{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'SFPro';
+    background-color: var(--accent-color);
+    border-radius: 40px;
+    max-width: 120px;
+
+    text-align: center;
+}
+
+.main__values{
+    display: flex;
+    flex-direction: row;
+    font-family: 'SFProMedium';
+    font-size: 30px;
+    color: #000;
+    background-color: var(--accent-color);
+    align-items: center;
+    border-radius: 40px;
+    margin: 20px;
+    padding: 0 20px;
+
+}
+
+.main__line{
+    font-size: 30px;
+}
+
+.body-light{font-size: 16px;}
+}

@@ -1,4 +1,4 @@
-import { Line} from "@nivo/line";
+import { ResponsiveLine} from "@nivo/line";
 import {myTheme } from "./operators";
 import { useDataStore } from "../../hooks/store";
 import { useState, useEffect } from "react";
@@ -49,13 +49,11 @@ const MyLine = ({ data, activeButton, setActiveButton }: MyLineProps) => {
 
       </div>
 
-      <Line
+          <ResponsiveLine
         data={data}
-        width={1150}
-        height={400}
         colors="#5DDE95"
         curve="monotoneX"
-        margin={{ top: 35, right: 110, bottom: 50, left: 100 }}
+        margin={{ top: 35, right: 110, bottom: 150, left: 100 }}
         theme={myTheme}
         yScale={{ type: 'linear', min: 'auto', max: 'auto', stacked: true }}
         axisBottom={{
@@ -77,6 +75,7 @@ const MyLine = ({ data, activeButton, setActiveButton }: MyLineProps) => {
         useMesh={true}
         legends={[]}
       />
+
     </div>
   );
 };

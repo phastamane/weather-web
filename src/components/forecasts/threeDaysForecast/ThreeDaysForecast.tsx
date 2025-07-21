@@ -52,6 +52,7 @@ function ThreeDaysForecast({index}: ThreeDaysForecastType){
                 {moreDetails && 
                 <>
                     <div className="cont-indicators">
+
                         <div className="three-days-forecast__date-values-active">
 
                             <span className="day-value">{day}</span>
