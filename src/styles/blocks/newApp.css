@@ -1,13 +1,15 @@
 .components{
 
+
 }
 .columns{
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
 }
 
 .right-column{
     display: flex;
     flex-direction: column;
     gap: 50px;
+    margin: 0 50px;
 }

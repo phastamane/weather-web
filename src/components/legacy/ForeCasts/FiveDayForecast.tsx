@@ -1,5 +1,5 @@
 import React from "react";
-import { FiveDaysForecastLogic } from "./FiveDayForecastLogic.tsx";
+import { FiveDaysForecastLogic } from "../../forecasts/fiveDaysForecast/FiveDayForecastLogic.tsx";
 import { getWeekDay, getMonth, PageConstructor } from '../../utils/dateHelpers.tsx';
 
 
@@ -10,7 +10,7 @@ type FiveDaysForecastProps = {
 
 const FiveDaysForecast: React.FC<FiveDaysForecastProps> = ({data, index}) => {
     
-  const forecastList: any = FiveDaysForecastLogic(data)
+  const forecastList = FiveDaysForecastLogic(data)
 
   const date: string = data.list[index].dt_txt.slice(0,10)
 

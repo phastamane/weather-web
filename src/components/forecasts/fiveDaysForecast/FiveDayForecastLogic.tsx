@@ -34,7 +34,7 @@ export function FiveDaysForecastLogic(data: any): ForecastDay[] {
   ];
 
   for (let i = 0; i < 40; i++) {
-    const dt = data.list[i].dt_txt;
+    const dt = data?.list[i].dt_txt;
     const requiredDate = Number(dt.slice(8, 10));
     const requiredTime = Number(dt.slice(11, 13));
     const timeIndex = times.indexOf(requiredTime);
