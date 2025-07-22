@@ -1,9 +1,4 @@
 import {Theme} from "@nivo/theming"
-import { create } from "zustand"
-
-
-
-
 
 export const myTheme: Partial<Theme> = {
   background: 'transparent',
