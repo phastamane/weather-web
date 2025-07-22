@@ -1,7 +1,7 @@
 import { ResponsiveLine} from "@nivo/line";
 import {myTheme } from "./operators";
 import { useDataStore } from "../../hooks/store";
-import { useState, useEffect } from "react";
+
 
 type MyLineProps = {
   data: {
