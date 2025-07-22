@@ -1,17 +1,22 @@
 .graph{
     max-width: 1150px;
+    min-height: 600px;
+
     background-color: var(--bg-color);
     border-radius: 80px;
     margin-left: 50px;
     margin-top: 50px;
     padding-top: 25px;
-    justify-items: flex-end;
+    padding-left: 60px;
+    padding-right: 50px;
+
 
 }
 .buttons-div {
     display: flex;
+    justify-self: center;
     gap: 15px;
-    margin-right: 100px;
+
     border-radius: 20px;
     background-color: #1e1f23;
     padding: 0 10px;
@@ -61,7 +66,7 @@ button.clicked:hover{
     min-height: 600px;
     background-color: var(--bg-color);
     border-radius: 80px;
-    margin-left: 50px;
+    margin-left: 0px;
     margin-top: 50px;
     padding-top: 25px;
     justify-items: center;
@@ -72,6 +77,36 @@ button.clicked:hover{
     justify-content: center;
     align-self: center;
     max-width: 60%;
+    gap: 15px;
+    margin-right: 0px;
+    border-radius: 20px;
+    background-color: #1e1f23;
+    padding: 0 10px;
+}
+}
+
+@media(max-width: 750px){
+    
+    .graph{
+        max-width: 1150px;
+        min-height: 400px;
+
+        background-color: var(--bg-color);
+        border-radius: 80px;
+        margin: 0 10px;
+        margin-top: 50px;
+        padding-top: 25px;
+        padding-left: 20px;
+        padding-right: 0px;
+
+
+    }
+
+    .buttons-div {
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    max-width: 90%;
     gap: 15px;
     margin-right: 0px;
     border-radius: 20px;

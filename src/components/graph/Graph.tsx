@@ -53,18 +53,19 @@ const MyLine = ({ data, activeButton, setActiveButton }: MyLineProps) => {
         data={data}
         colors="#5DDE95"
         curve="monotoneX"
-        margin={{ top: 35, right: 110, bottom: 150, left: 100 }}
+        margin={{ top: 20, right: 60, bottom: 100, left: 55 }}
         theme={myTheme}
         yScale={{ type: 'linear', min: 'auto', max: 'auto', stacked: true }}
         axisBottom={{
-          tickSize: 5,
+          tickSize: 4,
           tickPadding: 15,
+          tickRotation: 0,
           legendPosition: 'middle',
-          legendOffset: 40
+          legendOffset: 30
         }}
         axisLeft={{
           legendOffset: -60,
-          tickPadding: 15
+          tickPadding: 20
         }}
         pointSize={10}
         pointColor={{ theme: 'background' }}

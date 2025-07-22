@@ -23,6 +23,7 @@
     .right-column{
         display: flex;
         flex-direction: row;
+        margin: 0;
     }
 
 }
@@ -33,4 +34,28 @@
         flex-direction: column;
     }
 
+}
+
+#map {
+  width: 100%;
+  height: 100%;
+  border-radius: 40px;
+  overflow: hidden;
+  font-family: "SFPro";
+}
+
+/* Адаптивная обёртка карты */
+.map-wrapper {
+  width: 100%;
+  max-width: 800px;
+  aspect-ratio: 3 / 2;
+}
+
+/* На мобилках уменьшаем размер и соотношение */
+@media (max-width: 750px) {
+  .map-wrapper {
+    max-width: 90%;
+    aspect-ratio: 4 / 3;
+    align-self: center;
+  }
 }

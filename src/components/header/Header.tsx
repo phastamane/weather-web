@@ -78,7 +78,8 @@ function Header({request, setRequest, setActiveButton}: HeaderProps){
                         ✕
                         </button>
                     )}
-                    </label>
+                </label>
+ 
 
                 <div className="nav-menu__slider">
                 <button className="nav-menu__button" ref ={butRef} onClick={() => setIsOpen(!isOpen)}>ENG</button>
@@ -95,18 +96,33 @@ function Header({request, setRequest, setActiveButton}: HeaderProps){
                 </div>
 
                 <label className="nav-menu__switch">
-                <input type="checkbox" className="nav-menu__input"
-                        value={request}
-                        onChange={e => setRequest(e.target.value)}
-                         onKeyDown={e => {
-                            if (e.key === 'Enter') {
+                    <input type="checkbox" className="nav-menu__input"
+                            value={request}
+                            onChange={e => setRequest(e.target.value)}
+                            onKeyDown={e => {
+                                if (e.key === 'Enter') {
+                                    }
                                 }
-                            }
-                        } />
-                <span className="nav-menu__switch-slider" onClick={() => setSwitchTemp(!switchTemp)}>
-                    <p className= {switchTemp ? 'celsius' : 'celsius-black'}>{celiusStr}</p>
-                    <p className={switchTemp ? 'fahrenheit-black' : 'fahrenheit'}>{fahrenheitStr}</p>
-                </span>
+                            } />
+                    <span className="nav-menu__switch-slider" onClick={() => setSwitchTemp(!switchTemp)}>
+                        <p className= {switchTemp ? 'celsius' : 'celsius-black'}>{celiusStr}</p>
+                        <p className={switchTemp ? 'fahrenheit-black' : 'fahrenheit'}>{fahrenheitStr}</p>
+                    </span>
+                </label>
+
+                <label className="nav-menu__switch-mobile">
+                    <input type="checkbox" className="nav-menu__input"
+                            value={request}
+                            onChange={e => setRequest(e.target.value)}
+                            onKeyDown={e => {
+                                if (e.key === 'Enter') {
+                                    }
+                                }
+                            } />
+                    <span className="nav-menu__switch-slider" onClick={() => setSwitchTemp(!switchTemp)}>
+                        <p className= {switchTemp ? 'celsius' : 'celsius-black'}>{celiusStr}</p>
+                        <p className={switchTemp ? 'fahrenheit-black' : 'fahrenheit'}>{fahrenheitStr}</p>
+                    </span>
                 </label>
             </div>
             </div>

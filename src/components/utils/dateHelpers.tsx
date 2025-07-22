@@ -14,6 +14,16 @@ export function getMonth(date: string, num: number = 0): string{
   return months[processedData.getMonth()]
 }
 
+export function getMonthNumeric(date: string, num: number = 0): string {
+  const processedDate: Date = new Date(date);
+  processedDate.setDate(processedDate.getDate() + num);
+
+  const month = processedDate.getMonth() + 1;
+
+  return month < 10 ? `.0${month}` : `.${month}`;
+}
+
+
 export function getImage(current: string){
   
   const url: string = `https://openweathermap.org/img/wn/${current}@2x.png`

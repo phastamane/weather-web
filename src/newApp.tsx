@@ -49,7 +49,7 @@ function NewApp(){
 
                         <div className="three-days-div">
                             
-                            {[...Array(4)].map((_, i) => <ThreeDaysForecast key = {i} index = {i + 1}/>)}
+                            {[...Array(3)].map((_, i) => <ThreeDaysForecast key = {i} index = {i + 1}/>)}
 
                         </div>
                     </div>

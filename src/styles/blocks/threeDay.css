@@ -113,3 +113,55 @@
     margin-left: 20px;
 
 }
+
+@media(max-width:750px){
+
+    .three-days-div{
+        max-width: 350px;
+        width: 100%;
+        margin: 0 50px;
+    }
+    .three-days-forecast-active{
+        flex-direction: column;
+        min-width: 0;
+
+    }
+
+    .day-temp{
+        font-size: 30px;
+    }
+    .three-days-forecast__values-cont{
+        padding: 0 10px;
+    }
+    .three-days-forecast__date-values-active{
+        display: flex;
+        flex-direction: row;
+        max-width: 300px;
+        gap: 5px;
+        border-bottom: 1px solid #fff;
+        font-size: 30px;       
+    }
+    .three-days-forecast__date-values{
+        border-left: 1px solid #fff;
+        padding-left: 35px;
+    }
+
+    .day-value{
+        display: flex;
+        flex-direction: column;
+        font-size: 30px;
+    }
+    .month-value{
+        padding-top: 0;
+    }
+.cont-indicators {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(100px, 1fr));
+  gap: 10px;
+  max-width: 300px;
+  width: 100%;
+  margin: 0 auto; /* центрирует по горизонтали */
+  justify-items: center; /* выравнивание внутри ячеек */
+}
+
+}

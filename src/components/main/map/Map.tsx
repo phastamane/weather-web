@@ -111,24 +111,20 @@ useEffect(() => {
 }, [city]);
 
   return (
-    <>
-      {error && (
-        <div className={`error-banner ${isVisible ? "show" : "hide"}`} onClick={closeBanner}>
-          {error}
-        </div>
-)}
-  
-      <div
-        ref={mapRef}
-        id="map"
-        style={{
-          width: "600px",
-          height: "400px",
-          borderRadius: "40px",
-          overflow: "hidden",
-        }}
-      />
-    </>
+<>
+  {error && (
+    <div
+      className={`error-banner ${isVisible ? "show" : "hide"}`}
+      onClick={closeBanner}
+    >
+      {error}
+    </div>
+  )}
+
+  <div className="map-wrapper">
+    <div ref={mapRef} id="map" />
+  </div>
+</>
   );
 }
 

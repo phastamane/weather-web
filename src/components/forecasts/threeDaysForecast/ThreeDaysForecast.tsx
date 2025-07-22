@@ -32,7 +32,7 @@ function ThreeDaysForecast({index}: ThreeDaysForecastType){
                         <span className="day-temp">{forecastList[index]?.temp[2]}°C
                             {' '}
                             <span className="night-temp">
-                            / {forecastList[index]?.temp[3] ? forecastList[index]?.temp[2] : forecastList[index]?.temp[1]}°C
+                            / {forecastList[index]?.temp[3] ? forecastList[index]?.temp[3] : forecastList[index]?.temp[1]}°C
                             </span>
 
                         </span> 
@@ -51,15 +51,16 @@ function ThreeDaysForecast({index}: ThreeDaysForecastType){
                 </div>
                 {moreDetails && 
                 <>
-                    <div className="cont-indicators">
-
-                        <div className="three-days-forecast__date-values-active">
+                    <div className="three-days-forecast__date-values-active">
 
                             <span className="day-value">{day}</span>
                             <span className="month-value">{month}</span>
                             <span className="month-value">{weekDay}</span>                    
 
                     </div>
+                    <div className="cont-indicators">
+
+                        
                         {[...Array(4)].map((_, i) => {
                         let rainAmount: number = 0
                         if(forecastList[index].rain[i]) { 

@@ -1,6 +1,6 @@
 import { create } from "zustand";
 import getResponse from "../components/utils/getResponse";
-import { getMonth } from "../components/utils/dateHelpers";
+import { getMonthNumeric } from "../components/utils/dateHelpers";
 
 type CharsSeries ={
   id: string,
@@ -35,7 +35,7 @@ export const useDataStore = create<DataState>((set, get) => ({
 
   fetchData: async (req) => {
     const response = await getResponse(req, "weather");
-    const month = getMonth(response.list[0].dt_txt.slice(0,10))
+    const month = getMonthNumeric(response.list[0].dt_txt.slice(0,10))
     set({response: response})
     const prepareData: CharsSeries[] = [
       {      
@@ -43,7 +43,7 @@ export const useDataStore = create<DataState>((set, get) => ({
       data: response.list
       .filter( (_: any, index: number) => index % 8 === 0)
       .map((entry: any) => ({
-       x: `${entry.dt_txt.slice(8, 10)} ${month}`, y: Math.round(entry.main.temp) 
+       x: `${entry.dt_txt.slice(8, 10)}${month}`, y: Math.round(entry.main.temp) 
       }))
     },
     ];
@@ -52,14 +52,14 @@ export const useDataStore = create<DataState>((set, get) => ({
 },
   setTemp(){
         const response = get().response
-        const month = getMonth(response.list[0].dt_txt.slice(0,10))
+        const month = getMonthNumeric(response.list[0].dt_txt.slice(0,10))
         const prepareData: CharsSeries[] = [
       {      
       id: 'Темп.',
       data: response.list
       .filter( (_: any, index: number) => index % 8 === 0)
       .map((entry: any) => ({
-       x: `${entry.dt_txt.slice(8, 10)} ${month}`, y: Math.round(entry.main.temp) 
+       x: `${entry.dt_txt.slice(8, 10)}${month}`, y: Math.round(entry.main.temp) 
       }))
     },
     ];
@@ -68,14 +68,14 @@ export const useDataStore = create<DataState>((set, get) => ({
   },
   setHudimity(){
         const response = get().response
-        const month = getMonth(response.list[0].dt_txt.slice(0,10))
+        const month = getMonthNumeric(response.list[0].dt_txt.slice(0,10))
         const prepareData: CharsSeries[] = [
       {      
       id: 'Влажность',
       data: response.list
       .filter( (_: any, index: number) => index % 8 === 0)
       .map((entry: any) => ({
-       x: `${entry.dt_txt.slice(8, 10)} ${month}`, y: Math.round(entry.main.humidity) 
+       x: `${entry.dt_txt.slice(8, 10)}${month}`, y: Math.round(entry.main.humidity) 
       }))
     },
     ];
@@ -85,14 +85,14 @@ export const useDataStore = create<DataState>((set, get) => ({
   },
   setWind() {
       const response = get().response
-      const month = getMonth(response.list[0].dt_txt.slice(0,10))
+      const month = getMonthNumeric(response.list[0].dt_txt.slice(0,10))
       const prepareData: CharsSeries[] = [
       {      
       id: 'Ветер',
       data: response.list
       .filter( (_: any, index: number) => index % 8 === 0)
       .map((entry: any) => ({
-       x: `${entry.dt_txt.slice(8, 10)} ${month}`, y: Math.round(entry.wind.speed) 
+       x: `${entry.dt_txt.slice(8, 10)}${month}`, y: Math.round(entry.wind.speed) 
       }))
     },
     ];
