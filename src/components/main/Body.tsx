@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import getResponse from "../utils/getResponse";
 import { getImage, getWindDirection } from "../utils/dateHelpers";
 import DailyForecast from "../legacy/ForeCasts/DailyForecast";
-import styles from "../../styles/blocks/body.module.css"
 
 
 type BodyProps = {
@@ -53,20 +52,18 @@ function Body ({request}: BodyProps) {
     return (
 
             <>
-                <div className={styles.main}>
-                    <div className={styles.main__forecast}>
-                        <div className={styles.main__values}>
+                <div className="main">
+                    <div className="main__forecast">
+                        <div className="main__values">
                             <span>погода сейчас</span>
                             {Object.entries(values).map(([key, { value, unit, description }]) => (
-                            <div key={key} className={styles.day_values}>
-                                <div className={styles.main__line}>
+                            <div key={key} className="day-values">
+                                <div className="main__line">
                                 
                                 <span>{value}</span>
-                                <div className={styles.body_light}>{unit && `${unit}`}</div>
+                                <div className="body-light">{unit && `${unit}`}</div>
                                 </div>
-                                    {description && <div className={`${styles.main__description} ${styles.body_light}`}>
-                                        {description}
-                                </div>}
+                                {description && <div className="main__description body-light">{description}</div>}
                             </div>
                             ))}
                         </div>
