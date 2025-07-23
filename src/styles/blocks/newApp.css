@@ -63,9 +63,12 @@
     align-self: center;
   }
   .right-column{
-    margin-left: 110px;
+    max-width: 90%;
+    margin:0 0 ;
   }
     .left-column{
-    margin-left: 60px;
+
+          max-width: 90%;
+    margin-left: 0px;
   }
 }

@@ -110,7 +110,8 @@
   .three-days-div {
     max-width: 350px;
     width: 100%;
-    margin: 0 50px;
+    margin: 0 0 20px 0;
+
   }
 
   .three-days-forecast-active {
