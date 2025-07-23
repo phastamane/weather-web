@@ -4,7 +4,7 @@
 async function getResponse(request: string, api: string) {
     const WEATHER_API_KEY: string = 'f4c00f312087165b908fcc539f5922d2'
     const MAP_API_KEY: string = 'bf0e34a7-6408-4b5e-b674-db1fae99f13b'
-    const url: string = `http://api.openweathermap.org/data/2.5/forecast?q=${request}&units=metric&lang=ru&appid=${WEATHER_API_KEY}`
+    const url: string = `https://api.openweathermap.org/data/2.5/forecast?q=${request}&units=metric&lang=ru&appid=${WEATHER_API_KEY}`
     const mapUrl: string = `https://geocode-maps.yandex.ru/v1/?apikey=${MAP_API_KEY}&geocode=${request}&format=json`
 
     if (api === 'weather'){
