@@ -9,7 +9,8 @@ html {
     box-sizing: inherit;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
 
 }
 
@@ -30,7 +31,7 @@ body {
 @font-face {
     font-family: 'SFPro';
     src: url('../../fonts/SFProText-Light.ttf') format('truetype');
-    font-weight: 300; /* необязательно, но полезно */
+    font-weight: 300;
     font-style: normal;
 }
 

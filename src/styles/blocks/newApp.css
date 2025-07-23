@@ -1,61 +1,71 @@
-
-.columns{
-    display: flex;
-    justify-content: space-between;
-}
-
-.right-column{
-    display: flex;
-    flex-direction: column;
-    gap: 50px;
-    margin: 0 50px;
-}
-
-@media (max-width: 1860px){
-
-    .columns{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 50px;
-    }
-
-    .right-column{
-        display: flex;
-        flex-direction: row;
-        margin: 0;
-    }
+/* ===== LAYOUT: Columns ===== */
+.columns {
+  display: flex;
+  justify-content: space-between;
 
 }
 
-@media (max-width: 1280px){
-
-    .right-column{
-        flex-direction: column;
-    }
-
+.right-column {
+  display: flex;
+  flex-direction: column;
+  gap:50px;
+  margin-right: 50px;
 }
 
+
+/* ===== MAP ===== */
 #map {
   width: 100%;
-  height: 100%;
+  height: 400px;
   border-radius: 40px;
   overflow: hidden;
   font-family: "SFPro";
 }
 
-/* Адаптивная обёртка карты */
 .map-wrapper {
-  width: 100%;
+  height: 400px;
   max-width: 800px;
   aspect-ratio: 3 / 2;
 }
 
-/* На мобилках уменьшаем размер и соотношение */
+/* ===== MEDIA QUERIES ===== */
+@media (max-width: 1860px) {
+  .columns {
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+  }
+
+  .right-column {
+    flex-direction: row;
+    margin-left: 110px;
+
+
+    justify-content: space-between;
+  }
+}
+
+@media (max-width: 1350px) {
+  .right-column {
+    flex-direction: column;
+  }
+    .left-column{
+    margin-left: 50px;
+  }
+
+
+}
+
 @media (max-width: 750px) {
   .map-wrapper {
-    max-width: 90%;
+    max-width: 350px;
     aspect-ratio: 4 / 3;
     align-self: center;
+  }
+  .right-column{
+    margin-left: 110px;
+  }
+    .left-column{
+    margin-left: 60px;
   }
 }
