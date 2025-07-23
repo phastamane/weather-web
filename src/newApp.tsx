@@ -5,6 +5,7 @@ import Map from "./components/main/map/Map.tsx";
 import Graph from "./components/graph/Graph.tsx"
 import ThreeDaysForecast from "./components/forecasts/threeDaysForecast/ThreeDaysForecast.tsx";
 import { useDataStore } from './hooks/store.ts'
+import './styles/blocks/body.module.css'
 
 function NewApp(){
         const [activeButton, setActiveButton] = useState<number | undefined>(0)
