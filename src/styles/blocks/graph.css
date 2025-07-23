@@ -14,11 +14,12 @@
     justify-self: center;
     border-radius: 20px;
     background-color: #1e1f23;
-    padding: 0 10px;
+    padding: 10px 20px;
 }
 
 .buttons-div button {
     all: unset;
+
     cursor: pointer;
     color: var(--text-color);
     font-family: "SFPro";
@@ -51,6 +52,10 @@ button.clicked:hover {
     color: #000000;
 }
 
+.graph-img{
+    height: 30px;
+}
+
 /* MEDIA QUERIES */
 
 @media (max-width: 1280px) {
@@ -76,12 +81,12 @@ button.clicked:hover {
 
 @media (max-width: 750px) {
     .graph {
-        max-width: 370px;
+        min-width: 370px;
         min-height: 400px;
         background-color: var(--bg-color);
         border-radius: 80px;
         margin: 50px 0;
-        padding-top: 25px;
+        padding-top: 15px;
         padding-left: 20px;
         padding-right: 0;
         align-self: center;
@@ -91,11 +96,13 @@ button.clicked:hover {
         justify-content: center;
         align-self: center;
         max-width: 90%;
-        margin-right: 10px;
-        padding: 0 30px;
+        margin-right: 20px;
+        padding: 4px 20px;
     }
     .buttons-div button{
        width: 100%;
+       padding: 10px 10px;
+       font-size: 14px;
     }
     
 }

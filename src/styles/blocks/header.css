@@ -44,6 +44,7 @@
   text-align: center;
   outline: none;
   user-select: none;
+
 }
 
 .nav-menu__search-input::placeholder {
@@ -77,7 +78,8 @@
 /* ===== CLEAR BUTTON ===== */
 .nav-menu__clear-button {
   position: absolute;
-  right: 15px;
+  right: 20px;
+  top: 17px;
   background: none;
   border: none;
   font-size: 16px;
@@ -244,7 +246,7 @@
 .error-banner {
   position: absolute;
   top: 50px;
-  right: 600px;
+  right: 200px;
   transform: translate(-50%, -50%) scale(0.9);
   background: #f44336;
   color: #fff;
@@ -252,7 +254,7 @@
   padding: 20px 30px;
   border-radius: 40px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  font-size: 20px;
+  font-size: 14px;
   z-index: 1000;
   display: flex;
   align-items: center;
@@ -274,62 +276,14 @@
   transform: translate(-50%, -50%) scale(0.95);
   pointer-events: none;
 }
+
+
 @media (max-width: 1280px) {
   .nav-menu__switch,
   .nav-menu__slider {
     display: none;
   }
 
-  .burger-checkbox {
-    position: absolute;
-    visibility: hidden;
-  }
-
-  .burger {
-    display: block;
-    position: relative;
-    width: 40px;
-    height: 26px;
-    margin: 30px auto;
-    border: none;
-    background: transparent;
-    cursor: pointer;
-  }
-
-  .burger::before,
-  .burger::after {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 4px;
-    background: #000;
-    border-radius: 10px;
-    left: 0;
-  }
-
-  .burger::before {
-    top: 0;
-    box-shadow: 0 11px 0 #000;
-    transition: box-shadow 0.3s 0.15s, top 0.3s 0.15s, transform 0.3s;
-  }
-
-  .burger::after {
-    bottom: 0;
-    transition: bottom 0.3s 0.15s, transform 0.3s;
-  }
-
-  .burger-checkbox:checked + .burger::before {
-    top: 11px;
-    transform: rotate(45deg);
-    box-shadow: 0 6px 0 rgba(0, 0, 0, 0);
-    transition: box-shadow 0.15s, top 0.3s, transform 0.3s 0.15s;
-  }
-
-  .burger-checkbox:checked + .burger::after {
-    bottom: 11px;
-    transform: rotate(-45deg);
-    transition: bottom 0.3s, transform 0.3s 0.15s;
-  }
 }
 
 @media (max-width: 750px) {
@@ -337,7 +291,11 @@
     justify-content: space-between;
     padding: 10px;
   }
-
+.main__forecast {
+  width: 100% !important;
+  min-width: unset !important;
+  max-width: 350px !important;
+}
   .header__data {
     max-width: 100px;
     font-size: 20px;
@@ -346,4 +304,12 @@
   .nav-menu__search-input {
     max-width: 100px;
   }
+
+  .error-banner {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 300px;
+    text-align: center;
+}
 }

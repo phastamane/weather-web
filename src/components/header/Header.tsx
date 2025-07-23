@@ -81,10 +81,10 @@ function Header({request, setRequest, setActiveButton}: HeaderProps){
                 </label>
  
 
-                <div className="nav-menu__slider">
-                <button className="nav-menu__button" ref ={butRef} onClick={() => setIsOpen(!isOpen)}>ENG</button>
+                {/* <div className="nav-menu__slider">
+                <button className="nav-menu__button" ref ={butRef} onClick={() => setIsOpen(!isOpen)}>ENG</button> */}
 
-                <nav className={`nav-menu__nav-list ${isOpen ? 'nav-menu__nav-list--active' : ''}`} ref={menuRef}>
+                {/* <nav className={`nav-menu__nav-list ${isOpen ? 'nav-menu__nav-list--active' : ''}`} ref={menuRef}>
                     <ul className="nav-menu__list">
                     <li className="nav-menu__item"><a href="" className="nav-menu__link">ENG</a></li>
                     <li className="nav-menu__item"><a href="" className="nav-menu__link">RUS</a></li>
@@ -108,7 +108,7 @@ function Header({request, setRequest, setActiveButton}: HeaderProps){
                         <p className= {switchTemp ? 'celsius' : 'celsius-black'}>{celiusStr}</p>
                         <p className={switchTemp ? 'fahrenheit-black' : 'fahrenheit'}>{fahrenheitStr}</p>
                     </span>
-                </label>
+                </label> */}
 
                 <label className="nav-menu__switch-mobile">
                     <input type="checkbox" className="nav-menu__input"

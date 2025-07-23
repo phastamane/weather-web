@@ -28,9 +28,9 @@ function Body ({request}: BodyProps) {
         icon: {value: getImage(data?.list[0]?.weather[0]?.icon),},
         name : {value:data?.city?.name, description: data?.city?.country },
 
-        template:  {value: Math.round(data?.list[0]?.main?.temp), unit: '°C', description: 'Template'},
-        humidity: {value: data?.list[0]?.main?.humidity, unit: '%', description: 'Hudimity'},
-        wind: {value: Math.round(data?.list[0]?.wind?.speed), unit: `м/с ${getWindDirection(data?.list[0]?.wind?.deg)}`, description: 'Wind',},
+        template:  {value: Math.round(data?.list[0]?.main?.temp), unit: '°C', description: 'температура'},
+        humidity: {value: data?.list[0]?.main?.humidity, unit: '%', description: 'влажность'},
+        wind: {value: Math.round(data?.list[0]?.wind?.speed), unit: `м/с ${getWindDirection(data?.list[0]?.wind?.deg)}`, description: 'ветер',},
         
     }
 

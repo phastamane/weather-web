@@ -25,7 +25,7 @@ const MyLine = ({ data, activeButton, setActiveButton }: MyLineProps) => {
   const setWind = useDataStore(state => state.setWind);
 
   const buttonsFunc = [setTemp, setHudimity, setWind];
-  const buttonsName = ['температура', 'влажность', 'ветер'];
+  const buttonsName = ['src/images/graphImages/temperature.png', 'src/images/graphImages/humidity.png', 'src/images/graphImages/wind.png'];
   
 
 
@@ -43,7 +43,7 @@ const MyLine = ({ data, activeButton, setActiveButton }: MyLineProps) => {
             }}
             className={activeButton === index ? 'clicked' : ''}
           >
-            {label}
+            {<img src={label} alt="" className="graph-img"/>}
           </button>
         ))}
 
@@ -53,7 +53,7 @@ const MyLine = ({ data, activeButton, setActiveButton }: MyLineProps) => {
         data={data}
         colors="#5DDE95"
         curve="monotoneX"
-        margin={{ top: 20, right: 60, bottom: 100, left: 55 }}
+        margin={{ top: 20, right: 60, bottom: 110, left: 60 }}
         theme={myTheme}
         yScale={{ type: 'linear', min: 'auto', max: 'auto', stacked: true }}
         axisBottom={{
