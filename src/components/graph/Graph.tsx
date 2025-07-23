@@ -25,7 +25,7 @@ const MyLine = ({ data, activeButton, setActiveButton }: MyLineProps) => {
   const setWind = useDataStore(state => state.setWind);
 
   const buttonsFunc = [setTemp, setHudimity, setWind];
-  const buttonsName = ['src/images/graphImages/temperature.png', 'src/images/graphImages/humidity.png', 'src/images/graphImages/wind.png'];
+  const buttonsName = ['public/images/graphImages/temperature.png', 'public/images/graphImages/humidity.png', 'public/images/graphImages/wind.png'];
   
 
 
